@@ -1,0 +1,21 @@
+{
+  "name": "Curefoods \u2014 House of Food Brands",
+  "short_name": "Curefoods",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FBF7F0",
+  "theme_color": "#E6461C",
+  "description": "Curefoods is India's leading house of food brands, building and scaling category-defining F&B brands \u2014 from healthy meals to biryani, pizza to desserts \u2014 out of 400+ kitchens and stores across 60+ cities.",
+  "icons": [
+    {
+      "src": "/assets/images/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/images/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
