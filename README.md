@@ -24,6 +24,21 @@ This regenerates every HTML page, `sitemap.xml`, `robots.txt`, `llms.txt` and
 `manifest.json` at the repo root from that one data file. No build tooling,
 no npm install — GitHub Pages serves the generated files directly.
 
+**Base path:** the committed output on `main` is built for the GitHub Pages
+project-site preview (served under `/curefoods-website/`, not domain root):
+
+```bash
+SITE_BASE_PATH=/curefoods-website python3 build/generate.py
+```
+
+When this design is actually pointed at curefoods.in (domain root), regenerate
+with the env var unset (or empty) so every internal link, the manifest, and
+the service worker use root-relative paths instead:
+
+```bash
+python3 build/generate.py
+```
+
 ## Previewing locally
 
 ```bash

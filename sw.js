@@ -1,5 +1,6 @@
 const CACHE = "curefoods-v1";
-const CORE_ASSETS = ["/", "/assets/css/style.css", "/assets/js/main.js", "/offline.html"];
+const CORE_ASSETS = ["/curefoods-website/", "/curefoods-website/assets/css/style.css", "/curefoods-website/assets/js/main.js", "/curefoods-website/offline.html"];
+const OFFLINE_URL = "/curefoods-website/offline.html";
 
 self.addEventListener("install", (e) => {
   e.waitUntil(caches.open(CACHE).then((c) => c.addAll(CORE_ASSETS)));
@@ -22,6 +23,6 @@ self.addEventListener("fetch", (e) => {
         caches.open(CACHE).then((c) => c.put(e.request, copy));
         return res;
       })
-      .catch(() => caches.match(e.request).then((r) => r || caches.match("/offline.html")))
+      .catch(() => caches.match(e.request).then((r) => r || caches.match(OFFLINE_URL)))
   );
 });

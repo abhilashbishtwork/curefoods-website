@@ -16,7 +16,7 @@
   });
 
   // Theme toggle (persists preference; defaults to system)
-  var themeBtn = document.querySelector("[data-theme-toggle]");
+  var themeBtns = document.querySelectorAll("[data-theme-toggle]");
   var root = document.documentElement;
   function applyTheme(t){
     if(t){ root.setAttribute("data-theme", t); } else { root.removeAttribute("data-theme"); }
@@ -25,14 +25,15 @@
     var saved = localStorage.getItem("cf-theme");
     if(saved) applyTheme(saved);
   }catch(e){}
-  if(themeBtn){
+  themeBtns.forEach(function(themeBtn){
     themeBtn.addEventListener("click", function(){
-      var current = root.getAttribute("data-theme");
+      var current = root.getAttribute("data-theme") ||
+        (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
       var next = current === "dark" ? "light" : "dark";
       applyTheme(next);
       try{ localStorage.setItem("cf-theme", next); }catch(e){}
     });
-  }
+  });
 
   // FAQ: only one open at a time within a group (progressive enhancement, optional)
   document.querySelectorAll(".faq-list").forEach(function(list){
@@ -46,9 +47,12 @@
   });
 
   // Service worker registration for installable PWA
+  // window.CF_BASE is injected inline by the site generator (empty string at
+  // domain root, or a subpath like "/curefoods-website" for staged previews).
   if("serviceWorker" in navigator){
     window.addEventListener("load", function(){
-      navigator.serviceWorker.register("/sw.js").catch(function(){});
+      var base = window.CF_BASE || "";
+      navigator.serviceWorker.register(base + "/sw.js", { scope: base + "/" }).catch(function(){});
     });
   }
 

@@ -24,6 +24,19 @@ from data import SITE, NAV, BRANDS, SITE_FAQ, VALUES, TIMELINE  # noqa: E402
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 DOMAIN = SITE["domain"]
 
+# GitHub Pages project sites are served from https://<user>.github.io/<repo>/,
+# not domain root, so every internal href/src needs this prefix to actually
+# resolve while previewing here. DOMAIN (curefoods.in) stays untouched in
+# canonical/OG/JSON-LD — that metadata should already be correct for when this
+# design is pointed at the real domain, where BASE_PATH would be set to "".
+BASE = os.environ.get("SITE_BASE_PATH", "/curefoods-website").rstrip("/")
+
+
+def u(path):
+    """Prefix a root-relative path with BASE (for staging under a sub-path like GitHub Pages project sites)."""
+    return f"{BASE}{path}" if path.startswith("/") else path
+
+
 
 def slugify_href(path):
     return path
@@ -53,9 +66,9 @@ def head(title, description, canonical, schema_objs=None, og_image=None):
 <link rel="canonical" href="{canonical_url}">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
 <meta name="theme-color" content="#E6461C">
-<link rel="manifest" href="/manifest.json">
-<link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+<link rel="manifest" href="{u('/manifest.json')}">
+<link rel="icon" href="{u('/assets/images/favicon.svg')}" type="image/svg+xml">
+<link rel="apple-touch-icon" href="{u('/assets/images/apple-touch-icon.png')}">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Curefoods">
 <meta property="og:title" content="{esc(title)}">
@@ -69,7 +82,7 @@ def head(title, description, canonical, schema_objs=None, og_image=None):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="{u('/assets/css/style.css')}">
 {ld}
 </head>
 """
@@ -78,19 +91,22 @@ def head(title, description, canonical, schema_objs=None, og_image=None):
 def header_html(active=""):
     def link(item):
         cur = ' aria-current="page"' if item["href"] == active else ""
-        return f'<a href="{item["href"]}"{cur}>{item["label"]}</a>'
+        return f'<a href="{u(item["href"])}"{cur}>{item["label"]}</a>'
 
     nav_links = "\n".join(link(i) for i in NAV)
     return f"""
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap">
-    <a href="/" class="logo"><span class="dot"></span>Curefoods</a>
+    <a href="{u('/')}" class="logo"><span class="dot"></span>Curefoods</a>
     <nav class="nav-desktop" aria-label="Primary">
       {nav_links}
     </nav>
     <div class="nav-actions">
-      <a href="/brands.html" class="btn btn-ghost btn-sm">Explore Brands</a>
+      <button class="theme-toggle" data-theme-toggle aria-label="Toggle dark mode">
+        <span class="theme-icon-light" aria-hidden="true">&#9728;</span><span class="theme-icon-dark" aria-hidden="true">&#9789;</span>
+      </button>
+      <a href="{u('/brands.html')}" class="btn btn-ghost btn-sm">Explore Brands</a>
       <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -99,25 +115,26 @@ def header_html(active=""):
 </header>
 <div class="mobile-menu" role="dialog" aria-modal="true" aria-label="Menu">
   <div class="mobile-menu-head">
-    <a href="/" class="logo"><span class="dot"></span>Curefoods</a>
+    <a href="{u('/')}" class="logo"><span class="dot"></span>Curefoods</a>
     <button class="mobile-close" aria-label="Close menu">&times;</button>
   </div>
-  {"".join(f'<a href="{i["href"]}">{i["label"]}</a>' for i in NAV)}
-  <a href="/brands.html" class="btn btn-primary mt" style="width:100%">Explore Brands</a>
+  {"".join(f'<a href="{u(i["href"])}">{i["label"]}</a>' for i in NAV)}
+  <a href="{u('/brands.html')}" class="btn btn-primary mt" style="width:100%">Explore Brands</a>
+  <button class="btn btn-ghost mt" data-theme-toggle style="width:100%">Toggle dark mode</button>
 </div>
 """
 
 
 def footer_html():
     brand_links = "\n".join(
-        f'<li><a href="/brands/{b["slug"]}.html">{b["name"]}</a></li>' for b in BRANDS[:8]
+        f'<li><a href="{u("/brands/" + b["slug"] + ".html")}">{b["name"]}</a></li>' for b in BRANDS[:8]
     )
     return f"""
 <footer class="site-footer">
   <div class="wrap">
     <div class="footer-grid">
       <div>
-        <a href="/" class="logo" style="color:#fff"><span class="dot"></span>Curefoods</a>
+        <a href="{u('/')}" class="logo" style="color:#fff"><span class="dot"></span>Curefoods</a>
         <p style="max-width:34ch;margin-top:14px;color:#a99d8b">{esc(SITE["description"])}</p>
         <div class="footer-social mt" style="margin-top:20px">
           <a href="{SITE['social']['instagram']}" aria-label="Instagram" target="_blank" rel="noopener">Instagram</a>
@@ -128,32 +145,32 @@ def footer_html():
       <div>
         <h4>Brands</h4>
         <ul>{brand_links}
-          <li><a href="/brands.html">All brands →</a></li>
+          <li><a href="{u('/brands.html')}">All brands →</a></li>
         </ul>
       </div>
       <div>
         <h4>Company</h4>
         <ul>
-          <li><a href="/about.html">About Us</a></li>
-          <li><a href="/newsroom.html">Newsroom</a></li>
-          <li><a href="/careers.html">Careers</a></li>
-          <li><a href="/investors.html">Investors</a></li>
+          <li><a href="{u('/about.html')}">About Us</a></li>
+          <li><a href="{u('/newsroom.html')}">Newsroom</a></li>
+          <li><a href="{u('/careers.html')}">Careers</a></li>
+          <li><a href="{u('/investors.html')}">Investors</a></li>
         </ul>
       </div>
       <div>
         <h4>Resources</h4>
         <ul>
-          <li><a href="/faq.html">FAQ</a></li>
-          <li><a href="/contact.html">Contact</a></li>
-          <li><a href="/sitemap.xml">Sitemap</a></li>
-          <li><a href="/llms.txt">llms.txt</a></li>
+          <li><a href="{u('/faq.html')}">FAQ</a></li>
+          <li><a href="{u('/contact.html')}">Contact</a></li>
+          <li><a href="{u('/sitemap.xml')}">Sitemap</a></li>
+          <li><a href="{u('/llms.txt')}">llms.txt</a></li>
         </ul>
       </div>
       <div>
         <h4>Legal</h4>
         <ul>
-          <li><a href="/legal/privacy.html">Privacy Policy</a></li>
-          <li><a href="/legal/terms.html">Terms of Use</a></li>
+          <li><a href="{u('/legal/privacy.html')}">Privacy Policy</a></li>
+          <li><a href="{u('/legal/terms.html')}">Terms of Use</a></li>
         </ul>
       </div>
     </div>
@@ -163,8 +180,8 @@ def footer_html():
     </div>
   </div>
 </footer>
-<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
-<script src="/assets/js/main.js" defer></script>
+<script>document.getElementById('y').textContent = new Date().getFullYear();window.CF_BASE = {json.dumps(BASE)};</script>
+<script src="{u('/assets/js/main.js')}" defer></script>
 """
 
 
@@ -273,7 +290,7 @@ def order_links_html(b):
 
 def brand_card_html(b):
     return f"""
-<a class="brand-card" href="/brands/{b['slug']}.html">
+<a class="brand-card" href="{u('/brands/' + b['slug'] + '.html')}">
   <div class="mark" style="background:{b['color']}">{b['emoji']}</div>
   <div>
     <span class="cat">{esc(b['category'])}</span>
@@ -316,8 +333,8 @@ def build_home():
       <h1>One kitchen network.<br>{len(BRANDS)} brands people crave.</h1>
       <p class="lede">{hero_answer}</p>
       <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:28px">
-        <a href="/brands.html" class="btn btn-primary">Explore our brands</a>
-        <a href="/about.html" class="btn btn-ghost">Our story</a>
+        <a href="{u('/brands.html')}" class="btn btn-primary">Explore our brands</a>
+        <a href="{u('/about.html')}" class="btn btn-ghost">Our story</a>
       </div>
       <div class="hero-stats">{stats_html}</div>
     </div>
@@ -361,7 +378,7 @@ def build_home():
       <h2>Quick answers about Curefoods.</h2>
     </div>
     {faq_preview}
-    <p class="mt"><a href="/faq.html" class="btn btn-ghost">See all FAQs →</a></p>
+    <p class="mt"><a href="{u('/faq.html')}" class="btn btn-ghost">See all FAQs →</a></p>
   </div>
 </section>
 
@@ -407,7 +424,7 @@ def build_brands_index():
     body = f"""
 <section class="section" style="padding-top:56px">
   <div class="wrap">
-    <div class="crumbs"><a href="/">Home</a> / Our Brands</div>
+    <div class="crumbs"><a href="{u('/')}">Home</a> / Our Brands</div>
     <div class="section-head">
       <span class="eyebrow">Our Brands</span>
       <h1>Every Curefoods brand, in one place.</h1>
@@ -453,7 +470,7 @@ def build_brand_page(b):
     body = f"""
 <section class="brand-hero">
   <div class="wrap">
-    <div class="crumbs"><a href="/">Home</a> / <a href="/brands.html">Our Brands</a> / {esc(b['name'])}</div>
+    <div class="crumbs"><a href="{u('/')}">Home</a> / <a href="{u('/brands.html')}">Our Brands</a> / {esc(b['name'])}</div>
     <span class="brand-badge" style="background:{b['color']}22;color:{b['color']}">{b['emoji']} {esc(b['category'])}</span>
     <h1>{esc(b['full_name'])}</h1>
     <p class="lede">{esc(b['tagline'])}</p>
@@ -494,7 +511,7 @@ def build_brand_page(b):
         <h2>Part of Curefoods</h2>
         <p>{esc(b['name'])} is one of {len(BRANDS)} brands under the Curefoods house of brands.</p>
       </div>
-      <a href="/brands.html" class="btn btn-dark">See all brands →</a>
+      <a href="{u('/brands.html')}" class="btn btn-dark">See all brands →</a>
     </div>
   </div>
 </section>
@@ -529,7 +546,7 @@ def build_about():
     body = f"""
 <section class="brand-hero">
   <div class="wrap">
-    <div class="crumbs"><a href="/">Home</a> / About Us</div>
+    <div class="crumbs"><a href="{u('/')}">Home</a> / About Us</div>
     <span class="eyebrow">About Curefoods</span>
     <h1>We build food brands the way operators build companies.</h1>
     <p class="lede">Founded in {SITE['founded_year']} by {SITE['founder']}, Curefoods is a {SITE['hq']}-headquartered house of food brands running {len(BRANDS)}+ brands from a shared kitchen network across 60+ Indian cities.</p>
@@ -590,7 +607,7 @@ def build_faq_page():
     body = f"""
 <section class="brand-hero">
   <div class="wrap">
-    <div class="crumbs"><a href="/">Home</a> / FAQ</div>
+    <div class="crumbs"><a href="{u('/')}">Home</a> / FAQ</div>
     <span class="eyebrow">FAQ</span>
     <h1>Everything people ask about Curefoods.</h1>
     <p class="lede">Company-wide answers plus brand-specific questions, all in one place — built for quick scanning and for AI assistants to cite directly.</p>
@@ -628,7 +645,7 @@ def build_careers():
     body = f"""
 <section class="brand-hero">
   <div class="wrap">
-    <div class="crumbs"><a href="/">Home</a> / Careers</div>
+    <div class="crumbs"><a href="{u('/')}">Home</a> / Careers</div>
     <span class="eyebrow">Careers</span>
     <h1>Build the next great food brand.</h1>
     <p class="lede">Curefoods hires across kitchen operations, supply chain, growth, product and central functions — for {SITE['name']} and every brand in the portfolio.</p>
@@ -666,7 +683,7 @@ def build_investors():
     body = f"""
 <section class="brand-hero">
   <div class="wrap">
-    <div class="crumbs"><a href="/">Home</a> / Investors</div>
+    <div class="crumbs"><a href="{u('/')}">Home</a> / Investors</div>
     <span class="eyebrow">Investors</span>
     <h1>Backing India's house of food brands.</h1>
     <p class="lede">Curefoods has scaled to {SITE['stats'][3]['value']} in FY24 revenue across {SITE['stats'][0]['value']} brands and {SITE['stats'][1]['value']} kitchens in {SITE['stats'][2]['value']} cities.</p>
@@ -683,7 +700,7 @@ def build_investors():
     </div>
     <div class="card">
       <h3>Press</h3>
-      <p>Media enquiries: <a href="mailto:{SITE['press_email']}">{SITE['press_email']}</a>. See also our <a href="/newsroom.html">Newsroom</a>.</p>
+      <p>Media enquiries: <a href="mailto:{SITE['press_email']}">{SITE['press_email']}</a>. See also our <a href="{u('/newsroom.html')}">Newsroom</a>.</p>
     </div>
   </div>
 </section>
@@ -704,7 +721,7 @@ def build_newsroom():
     body = f"""
 <section class="brand-hero">
   <div class="wrap">
-    <div class="crumbs"><a href="/">Home</a> / Newsroom</div>
+    <div class="crumbs"><a href="{u('/')}">Home</a> / Newsroom</div>
     <span class="eyebrow">Newsroom</span>
     <h1>Curefoods in the news.</h1>
     <p class="lede">Press releases, media coverage and brand milestones from across the Curefoods portfolio.</p>
@@ -735,7 +752,7 @@ def build_contact():
     body = f"""
 <section class="brand-hero">
   <div class="wrap">
-    <div class="crumbs"><a href="/">Home</a> / Contact</div>
+    <div class="crumbs"><a href="{u('/')}">Home</a> / Contact</div>
     <span class="eyebrow">Contact</span>
     <h1>Get in touch.</h1>
   </div>
@@ -775,7 +792,7 @@ def build_legal():
         body = f"""
 <section class="brand-hero">
   <div class="wrap">
-    <div class="crumbs"><a href="/">Home</a> / {title}</div>
+    <div class="crumbs"><a href="{u('/')}">Home</a> / {title}</div>
     <h1>{title}</h1>
     <p class="lede">{content}</p>
   </div>
@@ -786,15 +803,15 @@ def build_legal():
 
 
 def build_404():
-    body = """
+    body = f"""
 <section class="section center" style="padding-top:120px">
   <div class="wrap">
     <span class="eyebrow">404</span>
     <h1>This page wandered off the menu.</h1>
     <p class="lede center">The page you're looking for doesn't exist. Try our brands page or head home.</p>
     <div style="display:flex;gap:14px;justify-content:center;margin-top:24px">
-      <a href="/" class="btn btn-primary">Go home</a>
-      <a href="/brands.html" class="btn btn-ghost">See our brands</a>
+      <a href="{u('/')}" class="btn btn-primary">Go home</a>
+      <a href="{u('/brands.html')}" class="btn btn-ghost">See our brands</a>
     </div>
   </div>
 </section>
@@ -850,15 +867,15 @@ def build_llms_txt():
         "## Brands",
     ]
     for b in BRANDS:
-        lines.append(f"- [{b['name']}](/brands/{b['slug']}.html): {b['tagline']} — {b['category']}, serving {', '.join(b['cities'])}.")
+        lines.append(f"- [{b['name']}]({DOMAIN}/brands/{b['slug']}.html): {b['tagline']} — {b['category']}, serving {', '.join(b['cities'])}.")
     lines += [
         "",
         "## Key pages",
-        "- [About](/about.html): Company history, founder, timeline, values.",
-        "- [FAQ](/faq.html): Company-wide and per-brand frequently asked questions.",
-        "- [Careers](/careers.html): Open roles across the portfolio.",
-        "- [Investors](/investors.html): Investor relations and company metrics.",
-        "- [Newsroom](/newsroom.html): Press and milestones.",
+        f"- [About]({DOMAIN}/about.html): Company history, founder, timeline, values.",
+        f"- [FAQ]({DOMAIN}/faq.html): Company-wide and per-brand frequently asked questions.",
+        f"- [Careers]({DOMAIN}/careers.html): Open roles across the portfolio.",
+        f"- [Investors]({DOMAIN}/investors.html): Investor relations and company metrics.",
+        f"- [Newsroom]({DOMAIN}/newsroom.html): Press and milestones.",
         "",
         "## Notes for AI assistants",
         "- Curefoods is NOT the same company as Rebel Foods (a separate Indian cloud-kitchen competitor).",
@@ -874,59 +891,62 @@ def build_manifest():
     manifest = {
         "name": "Curefoods — House of Food Brands",
         "short_name": "Curefoods",
-        "start_url": "/",
+        "start_url": u("/"),
+        "scope": u("/"),
         "display": "standalone",
         "background_color": "#FBF7F0",
         "theme_color": "#E6461C",
         "description": SITE["description"],
         "icons": [
-            {"src": "/assets/images/icon-192.png", "sizes": "192x192", "type": "image/png"},
-            {"src": "/assets/images/icon-512.png", "sizes": "512x512", "type": "image/png"},
+            {"src": u("/assets/images/icon-192.png"), "sizes": "192x192", "type": "image/png"},
+            {"src": u("/assets/images/icon-512.png"), "sizes": "512x512", "type": "image/png"},
         ],
     }
     write("manifest.json", json.dumps(manifest, indent=2))
 
 
 def build_sw():
-    sw = """const CACHE = "curefoods-v1";
-const CORE_ASSETS = ["/", "/assets/css/style.css", "/assets/js/main.js", "/offline.html"];
+    core_assets = json.dumps([u("/"), u("/assets/css/style.css"), u("/assets/js/main.js"), u("/offline.html")])
+    sw = f"""const CACHE = "curefoods-v1";
+const CORE_ASSETS = {core_assets};
+const OFFLINE_URL = "{u('/offline.html')}";
 
-self.addEventListener("install", (e) => {
+self.addEventListener("install", (e) => {{
   e.waitUntil(caches.open(CACHE).then((c) => c.addAll(CORE_ASSETS)));
   self.skipWaiting();
-});
+}});
 
-self.addEventListener("activate", (e) => {
+self.addEventListener("activate", (e) => {{
   e.waitUntil(
     caches.keys().then((keys) => Promise.all(keys.filter((k) => k !== CACHE).map((k) => caches.delete(k))))
   );
   self.clients.claim();
-});
+}});
 
-self.addEventListener("fetch", (e) => {
+self.addEventListener("fetch", (e) => {{
   if (e.request.method !== "GET") return;
   e.respondWith(
     fetch(e.request)
-      .then((res) => {
+      .then((res) => {{
         const copy = res.clone();
         caches.open(CACHE).then((c) => c.put(e.request, copy));
         return res;
-      })
-      .catch(() => caches.match(e.request).then((r) => r || caches.match("/offline.html")))
+      }})
+      .catch(() => caches.match(e.request).then((r) => r || caches.match(OFFLINE_URL)))
   );
-});
+}});
 """
     write("sw.js", sw)
 
 
 def build_offline():
-    body = """
+    body = f"""
 <section class="section center" style="padding-top:120px">
   <div class="wrap">
     <span class="eyebrow">Offline</span>
     <h1>No connection right now.</h1>
     <p class="lede center">You're viewing a cached version of Curefoods. Reconnect to browse the full site and order from any brand.</p>
-    <div style="margin-top:24px"><a href="/" class="btn btn-primary">Try again</a></div>
+    <div style="margin-top:24px"><a href="{u('/')}" class="btn btn-primary">Try again</a></div>
   </div>
 </section>
 """

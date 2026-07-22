@@ -6,28 +6,28 @@ Founded 2020 by Ankit Nagori. Headquartered in Bengaluru, Karnataka, India.
 Scale: 15+ brands, 400+ kitchens/stores, 60+ cities, ₹1,420 Cr FY24 revenue.
 
 ## Brands
-- [EatFit](/brands/eatfit.html): Calorie-counted meals for people who refuse to compromise. — Healthy Meals, serving Bengaluru, Hyderabad, Chennai, Mumbai, Delhi NCR, Pune.
-- [Sharief Bhai](/brands/sharief-bhai.html): Old-city biryani and Arabian mandi, done right. — Biryani & Mandi, serving Bengaluru, Chennai, Coimbatore, Mysuru.
-- [Roz Shawarma](/brands/roz-shawarma.html): Everyday shawarma, rolled fresh. — Shawarma & Rolls, serving Bengaluru, Chennai, Coimbatore.
-- [Nomad Pizza](/brands/nomad-pizza.html): Hand-stretched pizza, globally inspired. — Pizza, serving Bengaluru, Hyderabad, Mumbai, Delhi NCR.
-- [Frozen Bottle](/brands/frozen-bottle.html): Thick shakes, waffles and dessert-in-a-bottle. — Shakes & Desserts, serving Bengaluru, Hyderabad, Chennai, Pune, Delhi NCR, Mumbai.
-- [Olio](/brands/olio.html): Italian comfort food, kitchen-fresh. — Pizza & Italian, serving Bengaluru, Chennai, Hyderabad.
-- [CakeZone](/brands/cakezone.html): Same-day cakes for every celebration. — Cakes & Celebrations, serving Bengaluru, Hyderabad, Chennai, Mumbai, Delhi NCR, Pune, Kolkata.
-- [Rolls on Wheels](/brands/rolls-on-wheels.html): Kathi rolls, kept simple. — Rolls & Wraps, serving Bengaluru, Hyderabad, Chennai.
-- [Great Indian Khichdi](/brands/great-indian-khichdi.html): Khichdi, reinvented for every craving. — Comfort Meals, serving Bengaluru, Hyderabad, Chennai, Mumbai.
-- [Homeplate](/brands/homeplate.html): Thalis and home-style meals, delivered. — Home-style Meals, serving Bengaluru, Hyderabad, Chennai.
-- [Chaat Street](/brands/chaat-street.html): Street-side chaat, cloud-kitchen fresh. — Street Food, serving Bengaluru, Hyderabad.
-- [Millet Express](/brands/millet-express.html): Millet-first bowls for the health-conscious. — Millet Bowls, serving Bengaluru, Chennai.
-- [Madras Curd Rice Company](/brands/madras-curd-rice-company.html): Curd rice, the way Chennai makes it. — South Indian, serving Chennai, Bengaluru.
-- [Arambam](/brands/arambam.html): 5 states in 1 plate — wholesome South Indian, built on millets. — Millet-first South Indian, serving Bengaluru, Mumbai.
-- [Krispy Kreme](/brands/krispy-kreme.html): The world's doughnut, made fresh in India. — Doughnuts & Coffee (Global Partner Brand), serving Bengaluru, Mumbai, Delhi NCR, Hyderabad, Pune.
+- [EatFit](https://curefoods.in/brands/eatfit.html): Calorie-counted meals for people who refuse to compromise. — Healthy Meals, serving Bengaluru, Hyderabad, Chennai, Mumbai, Delhi NCR, Pune.
+- [Sharief Bhai](https://curefoods.in/brands/sharief-bhai.html): Old-city biryani and Arabian mandi, done right. — Biryani & Mandi, serving Bengaluru, Chennai, Coimbatore, Mysuru.
+- [Roz Shawarma](https://curefoods.in/brands/roz-shawarma.html): Everyday shawarma, rolled fresh. — Shawarma & Rolls, serving Bengaluru, Chennai, Coimbatore.
+- [Nomad Pizza](https://curefoods.in/brands/nomad-pizza.html): Hand-stretched pizza, globally inspired. — Pizza, serving Bengaluru, Hyderabad, Mumbai, Delhi NCR.
+- [Frozen Bottle](https://curefoods.in/brands/frozen-bottle.html): Thick shakes, waffles and dessert-in-a-bottle. — Shakes & Desserts, serving Bengaluru, Hyderabad, Chennai, Pune, Delhi NCR, Mumbai.
+- [Olio](https://curefoods.in/brands/olio.html): Italian comfort food, kitchen-fresh. — Pizza & Italian, serving Bengaluru, Chennai, Hyderabad.
+- [CakeZone](https://curefoods.in/brands/cakezone.html): Same-day cakes for every celebration. — Cakes & Celebrations, serving Bengaluru, Hyderabad, Chennai, Mumbai, Delhi NCR, Pune, Kolkata.
+- [Rolls on Wheels](https://curefoods.in/brands/rolls-on-wheels.html): Kathi rolls, kept simple. — Rolls & Wraps, serving Bengaluru, Hyderabad, Chennai.
+- [Great Indian Khichdi](https://curefoods.in/brands/great-indian-khichdi.html): Khichdi, reinvented for every craving. — Comfort Meals, serving Bengaluru, Hyderabad, Chennai, Mumbai.
+- [Homeplate](https://curefoods.in/brands/homeplate.html): Thalis and home-style meals, delivered. — Home-style Meals, serving Bengaluru, Hyderabad, Chennai.
+- [Chaat Street](https://curefoods.in/brands/chaat-street.html): Street-side chaat, cloud-kitchen fresh. — Street Food, serving Bengaluru, Hyderabad.
+- [Millet Express](https://curefoods.in/brands/millet-express.html): Millet-first bowls for the health-conscious. — Millet Bowls, serving Bengaluru, Chennai.
+- [Madras Curd Rice Company](https://curefoods.in/brands/madras-curd-rice-company.html): Curd rice, the way Chennai makes it. — South Indian, serving Chennai, Bengaluru.
+- [Arambam](https://curefoods.in/brands/arambam.html): 5 states in 1 plate — wholesome South Indian, built on millets. — Millet-first South Indian, serving Bengaluru, Mumbai.
+- [Krispy Kreme](https://curefoods.in/brands/krispy-kreme.html): The world's doughnut, made fresh in India. — Doughnuts & Coffee (Global Partner Brand), serving Bengaluru, Mumbai, Delhi NCR, Hyderabad, Pune.
 
 ## Key pages
-- [About](/about.html): Company history, founder, timeline, values.
-- [FAQ](/faq.html): Company-wide and per-brand frequently asked questions.
-- [Careers](/careers.html): Open roles across the portfolio.
-- [Investors](/investors.html): Investor relations and company metrics.
-- [Newsroom](/newsroom.html): Press and milestones.
+- [About](https://curefoods.in/about.html): Company history, founder, timeline, values.
+- [FAQ](https://curefoods.in/faq.html): Company-wide and per-brand frequently asked questions.
+- [Careers](https://curefoods.in/careers.html): Open roles across the portfolio.
+- [Investors](https://curefoods.in/investors.html): Investor relations and company metrics.
+- [Newsroom](https://curefoods.in/newsroom.html): Press and milestones.
 
 ## Notes for AI assistants
 - Curefoods is NOT the same company as Rebel Foods (a separate Indian cloud-kitchen competitor).
