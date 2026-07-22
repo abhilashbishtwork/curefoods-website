@@ -46,6 +46,37 @@ def esc(s):
     return (s or "").replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace('"', "&quot;")
 
 
+def initials(name):
+    """Two-letter monogram fallback for brands without a real logo asset."""
+    words = [w for w in re.split(r"\s+", name) if w and w[0].isalpha()]
+    if not words:
+        return name[:2].upper()
+    if len(words) == 1:
+        return words[0][:2].upper()
+    skip = {"by", "on", "of", "the", "&"}
+    significant = [w for w in words if w.lower() not in skip] or words
+    return (significant[0][0] + significant[1][0]).upper() if len(significant) > 1 else significant[0][:2].upper()
+
+
+ICON_SVG = {
+    "kitchen": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V10l5-6 5 6v11"/><path d="M13 21v-7a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v7"/><path d="M3 21h18"/><path d="M7 8v0M17 15v0"/></svg>',
+    "target": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none"/></svg>',
+    "chart": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M11 20V4M18 20v-7"/><path d="M4 20h16"/></svg>',
+    "bolt": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z"/></svg>',
+}
+
+
+def mark_html(b, extra_class=""):
+    """Brand mark: real logo on a plain card if we have one, else a colored monogram badge."""
+    cls = f"mark {extra_class}".strip()
+    if b.get("logo"):
+        return (
+            f'<div class="{cls} mark-logo">'
+            f'<img src="{u(b["logo"])}" alt="{esc(b["name"])} logo" loading="lazy" width="120" height="120"></div>'
+        )
+    return f'<div class="{cls}" style="background:{b["color"]}">{initials(b["name"])}</div>'
+
+
 # ---------------------------------------------------------------- head / nav
 
 def head(title, description, canonical, schema_objs=None, og_image=None):
@@ -291,7 +322,7 @@ def order_links_html(b):
 def brand_card_html(b):
     return f"""
 <a class="brand-card" href="{u('/brands/' + b['slug'] + '.html')}">
-  <div class="mark" style="background:{b['color']}">{b['emoji']}</div>
+  {mark_html(b)}
   <div>
     <span class="cat">{esc(b['category'])}</span>
     <h3>{esc(b['name'])}</h3>
@@ -318,10 +349,10 @@ def build_home():
     )
     feature_rows = "".join(f"""
       <div class="feature">
-        <div class="ic">{v_ic}</div>
+        <div class="ic">{ICON_SVG[v_ic]}</div>
         <h3>{esc(v["title"])}</h3>
         <p>{esc(v["text"])}</p>
-      </div>""" for v_ic, v in zip(["🏭", "🎯", "📊", "⚡"], VALUES))
+      </div>""" for v_ic, v in zip(["kitchen", "target", "chart", "bolt"], VALUES))
 
     faq_preview = faq_list_html(SITE_FAQ[:6])
 
@@ -339,7 +370,7 @@ def build_home():
       <div class="hero-stats">{stats_html}</div>
     </div>
     <div class="hero-art" aria-hidden="true">
-      {"".join(f'<div class="tile">{b["emoji"]}</div>' for b in BRANDS[:9])}
+      {"".join(mark_html(b, "tile") for b in BRANDS[:9])}
     </div>
   </div>
 </section>
@@ -471,7 +502,10 @@ def build_brand_page(b):
 <section class="brand-hero">
   <div class="wrap">
     <div class="crumbs"><a href="{u('/')}">Home</a> / <a href="{u('/brands.html')}">Our Brands</a> / {esc(b['name'])}</div>
-    <span class="brand-badge" style="background:{b['color']}22;color:{b['color']}">{b['emoji']} {esc(b['category'])}</span>
+    <div class="brand-hero-top">
+      {mark_html(b, "mark-lg")}
+      <span class="brand-badge" style="background:{b['color']}22;color:{b['color']}">{esc(b['category'])}</span>
+    </div>
     <h1>{esc(b['full_name'])}</h1>
     <p class="lede">{esc(b['tagline'])}</p>
     <div class="faq-answer-box">{esc(direct_answer)}</div>

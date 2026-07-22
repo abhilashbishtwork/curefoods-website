@@ -52,7 +52,7 @@ BRANDS = [
         "full_name": "EatFit — Kitchens of EatFit",
         "category": "Healthy Meals",
         "color": "#1F6D4C",
-        "emoji": "🥗",
+        "logo": "/assets/images/logos/eatfit.png",
         "tagline": "Calorie-counted meals for people who refuse to compromise.",
         "description": (
             "EatFit is Curefoods' flagship healthy-eating brand, delivering "
@@ -104,7 +104,7 @@ BRANDS = [
         "full_name": "Sharief Bhai",
         "category": "Biryani & Mandi",
         "color": "#B8330F",
-        "emoji": "🍛",
+        "logo": "/assets/images/logos/sharief-bhai.png",
         "domain": "https://www.shariefbhai.com",
         "tagline": "Old-city biryani and Arabian mandi, done right.",
         "description": (
@@ -153,7 +153,7 @@ BRANDS = [
         "full_name": "Roz Shawarma",
         "category": "Shawarma & Rolls",
         "color": "#C4581B",
-        "emoji": "🌯",
+        "logo": None,
         "tagline": "Everyday shawarma, rolled fresh.",
         "description": (
             "Roz Shawarma is Curefoods' quick-bite shawarma and rolls brand, born out of "
@@ -193,7 +193,7 @@ BRANDS = [
         "full_name": "Nomad Pizza",
         "category": "Pizza",
         "color": "#A62639",
-        "emoji": "🍕",
+        "logo": "/assets/images/logos/nomad-pizza.png",
         "tagline": "Hand-stretched pizza, globally inspired.",
         "description": (
             "Nomad Pizza brings artisanal, hand-stretched pizzas with globally inspired "
@@ -228,7 +228,7 @@ BRANDS = [
         "full_name": "Frozen Bottle",
         "category": "Shakes & Desserts",
         "color": "#2C6E8E",
-        "emoji": "🥤",
+        "logo": "/assets/images/logos/frozen-bottle.png",
         "domain": "https://www.frozenbottle.com",
         "tagline": "Thick shakes, waffles and dessert-in-a-bottle.",
         "description": (
@@ -263,7 +263,7 @@ BRANDS = [
         "full_name": "Olio",
         "category": "Pizza & Italian",
         "color": "#7A5C2E",
-        "emoji": "🍝",
+        "logo": "/assets/images/logos/olio.png",
         "domain": "https://www.oliopizza.in",
         "tagline": "Italian comfort food, kitchen-fresh.",
         "description": (
@@ -299,7 +299,7 @@ BRANDS = [
         "full_name": "CakeZone",
         "category": "Cakes & Celebrations",
         "color": "#C24E7B",
-        "emoji": "🎂",
+        "logo": "/assets/images/logos/cakezone.svg",
         "tagline": "Same-day cakes for every celebration.",
         "description": (
             "CakeZone is Curefoods' cakes and celebration-desserts brand, built around "
@@ -332,7 +332,7 @@ BRANDS = [
         "full_name": "Rolls on Wheels",
         "category": "Rolls & Wraps",
         "color": "#8C3B2E",
-        "emoji": "🌮",
+        "logo": None,
         "tagline": "Kathi rolls, kept simple.",
         "description": (
             "Rolls on Wheels is a Kitchens-of-EatFit sister brand serving Kolkata-style kathi "
@@ -360,7 +360,7 @@ BRANDS = [
         "full_name": "Great Indian Khichdi (GIK)",
         "category": "Comfort Meals",
         "color": "#5B7B3A",
-        "emoji": "🍚",
+        "logo": None,
         "tagline": "Khichdi, reinvented for every craving.",
         "description": (
             "Great Indian Khichdi turns India's ultimate comfort food into a full menu of "
@@ -388,7 +388,7 @@ BRANDS = [
         "full_name": "Homeplate",
         "category": "Home-style Meals",
         "color": "#9C6B30",
-        "emoji": "🍱",
+        "logo": None,
         "tagline": "Thalis and home-style meals, delivered.",
         "description": (
             "Homeplate serves regional Indian thalis and home-style meal combos, part of the "
@@ -416,7 +416,7 @@ BRANDS = [
         "full_name": "Chaat Street",
         "category": "Street Food",
         "color": "#D6672A",
-        "emoji": "🥙",
+        "logo": None,
         "tagline": "Street-side chaat, cloud-kitchen fresh.",
         "description": (
             "Chaat Street brings India's street-food chaat culture — pani puri, bhel, "
@@ -443,7 +443,7 @@ BRANDS = [
         "full_name": "Millet Express",
         "category": "Millet Bowls",
         "color": "#8A9A3E",
-        "emoji": "🌾",
+        "logo": None,
         "tagline": "Millet-first bowls for the health-conscious.",
         "description": (
             "Millet Express builds its entire menu around millets — ragi, jowar, bajra — as a "
@@ -471,7 +471,7 @@ BRANDS = [
         "full_name": "Madras Curd Rice Company (MCRC)",
         "category": "South Indian",
         "color": "#3E6B6B",
-        "emoji": "🍚",
+        "logo": None,
         "tagline": "Curd rice, the way Chennai makes it.",
         "description": (
             "Madras Curd Rice Company is a hyper-focused South Indian brand built around "
@@ -499,7 +499,7 @@ BRANDS = [
         "full_name": "Arambam",
         "category": "Millet-first South Indian",
         "color": "#3E7A5C",
-        "emoji": "🍲",
+        "logo": "/assets/images/logos/arambam.webp",
         "domain": "https://www.arambam.com",
         "tagline": "5 states in 1 plate — wholesome South Indian, built on millets.",
         "description": (
@@ -541,7 +541,7 @@ BRANDS = [
         "full_name": "Krispy Kreme India",
         "category": "Doughnuts & Coffee (Global Partner Brand)",
         "color": "#00543D",
-        "emoji": "🍩",
+        "logo": "/assets/images/logos/krispy-kreme.png",
         "domain": "https://www.krispykremeindia.in",
         "tagline": "The world's doughnut, made fresh in India.",
         "description": (
