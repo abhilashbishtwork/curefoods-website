@@ -86,7 +86,7 @@ def head(title, description, canonical, schema_objs=None, og_image=None):
         graph = {"@context": "https://schema.org", "@graph": schema_objs}
         ld = f'<script type="application/ld+json">{json.dumps(graph, ensure_ascii=False)}</script>'
     canonical_url = f"{DOMAIN}{canonical}"
-    img = og_image or f"{DOMAIN}/assets/images/og-default.svg"
+    img = og_image or f"{DOMAIN}/assets/images/og-default.png"
     return f"""<!doctype html>
 <html lang="en">
 <head>
@@ -236,7 +236,7 @@ def org_schema():
         "name": SITE["name"],
         "legalName": SITE["legal_name"],
         "url": DOMAIN,
-        "logo": f"{DOMAIN}/assets/images/logo.svg",
+        "logo": f"{DOMAIN}/assets/images/logos/curefoods.png",
         "foundingDate": SITE["founded_year"],
         "founder": {"@type": "Person", "name": SITE["founder"]},
         "description": SITE["description"],
@@ -278,17 +278,20 @@ def breadcrumb_schema(items):
 
 
 def brand_schema(b):
-    return {
+    schema = {
         "@type": "Brand",
         "@id": f"{DOMAIN}/brands/{b['slug']}.html#brand",
         "name": b["name"],
         "description": b["description"],
         "url": f"{DOMAIN}/brands/{b['slug']}.html",
-        "logo": f"{DOMAIN}/assets/images/brand-{b['slug']}.svg",
+        "logo": f"{DOMAIN}{b['logo']}" if b.get("logo") else f"{DOMAIN}/assets/images/logos/curefoods.png",
         "parentOrganization": {"@id": f"{DOMAIN}/#organization"},
         "foundingDate": b["founded"].split(" ")[0],
         "areaServed": b["cities"],
     }
+    if b.get("photo"):
+        schema["image"] = f"{DOMAIN}{b['photo']}"
+    return schema
 
 
 # ------------------------------------------------------------------- pieces
@@ -333,6 +336,7 @@ def brand_card_html(b):
       <h3>{esc(b['name'])}</h3>
     </div>
     <p>{esc(b['tagline'])}</p>
+    <span class="card-stat">{len(b['cities'])} cities</span>
     <span class="go">Explore {esc(b['name'])} →</span>
   </div>
 </a>"""
@@ -580,6 +584,7 @@ def build_brand_page(b):
         body,
         active="/brands.html",
         schema_objs=schema,
+        og_image=f"{DOMAIN}{b['photo']}" if b.get("photo") else None,
     )
     write(f"brands/{b['slug']}.html", html)
 
@@ -607,6 +612,19 @@ def build_about():
 </section>
 
 <section class="section-tight section-alt">
+  <div class="wrap grid-2" style="align-items:center">
+    <div>
+      <span class="eyebrow">Where we operate</span>
+      <h2>Cloud kitchens, kiosks and restaurants across India.</h2>
+      <p class="lede">Curefoods runs a mix of cloud kitchens, central kitchens, warehouses, kiosks and dine-in restaurants — concentrated in South India with a growing footprint north and east.</p>
+    </div>
+    <div class="brand-hero-photo" style="aspect-ratio:16/15;box-shadow:none;border:1px solid var(--line)">
+      <img src="{u('/assets/images/photos/india-map.png')}" alt="Map of Curefoods kitchens, kiosks and restaurants across India" loading="lazy" style="object-fit:contain;background:#fff">
+    </div>
+  </div>
+</section>
+
+<section class="section-tight">
   <div class="wrap">
     <div class="section-head"><span class="eyebrow">How we operate</span><h2>What makes the model work</h2></div>
     <div class="feature-row">{values_html}</div>
@@ -655,6 +673,7 @@ def build_about():
         body,
         active="/about.html",
         schema_objs=schema,
+        og_image=f"{DOMAIN}/assets/images/photos/india-map.png",
     )
     write("about.html", html)
 
@@ -738,6 +757,7 @@ def build_careers():
         body,
         active="/careers.html",
         schema_objs=schema,
+        og_image=f"{DOMAIN}/assets/images/photos/curefoods-mascot.jpg",
     )
     write("careers.html", html)
 
