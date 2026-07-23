@@ -260,7 +260,7 @@ BRANDS = [
             {"veg": True, "name": "Kreme Coffee", "detail": "Hot & cold coffee range"},
         ],
         "cities": ["Bengaluru", "Hyderabad", "Chennai", "Delhi NCR", "Jaipur", "Chandigarh"],
-        "store_count": "84",
+        "store_count": "150+",
         "founded": "2022 (Curefoods master franchise; global brand since 1937)",
         "faq": [
             {
