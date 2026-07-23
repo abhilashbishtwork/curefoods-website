@@ -235,6 +235,11 @@ p{margin:0 0 1em;}
 .menu-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;}
 .menu-item{background:var(--white);border:1px solid var(--line);border-radius:var(--radius-sm);padding:16px 18px;}
 .menu-item .price{color:var(--brand-dark);font-weight:700;font-size:.9rem;}
+.veg-mark{display:inline-flex;width:14px;height:14px;border:1.5px solid;border-radius:2px;align-items:center;justify-content:center;margin-right:8px;vertical-align:middle;}
+.veg-mark.veg{border-color:#0c8a3e;}
+.veg-mark.veg .dot{width:7px;height:7px;border-radius:50%;background:#0c8a3e;}
+.veg-mark.nonveg{border-color:#8a1c0c;}
+.veg-mark.nonveg .dot{width:7px;height:7px;border-radius:50%;background:#8a1c0c;}
 
 /* Breadcrumb */
 .crumbs{font-size:.85rem;color:var(--ink-soft);margin-bottom:18px;}

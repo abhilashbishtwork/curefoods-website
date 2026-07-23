@@ -70,10 +70,10 @@ BRANDS = [
             "brands to the same customer."
         ),
         "menu": [
-            {"name": "Peri Peri Chicken Rice Bowl", "detail": "420 kcal · 32g protein"},
-            {"name": "Paneer Tikka Overload Bowl", "detail": "390 kcal · 24g protein"},
-            {"name": "Grilled Chicken Salad", "detail": "310 kcal · 28g protein"},
-            {"name": "Quinoa Khichdi", "detail": "340 kcal · 14g protein"},
+            {"veg": False, "name": "Peri Peri Chicken Rice Bowl", "detail": "420 kcal · 32g protein"},
+            {"veg": True, "name": "Paneer Tikka Overload Bowl", "detail": "390 kcal · 24g protein"},
+            {"veg": False, "name": "Grilled Chicken Salad", "detail": "310 kcal · 28g protein"},
+            {"veg": True, "name": "Quinoa Khichdi", "detail": "340 kcal · 14g protein"},
         ],
         "cities": ["Bengaluru", "Hyderabad", "Chennai", "Mumbai", "Delhi NCR", "Pune"],
         "founded": "2020",
@@ -121,10 +121,10 @@ BRANDS = [
             "to focus purely on shawarma and rolls for a faster, lighter occasion."
         ),
         "menu": [
-            {"name": "Hyderabadi Chicken Dum Biryani", "detail": "Signature slow-dum biryani"},
-            {"name": "Chicken Mandi", "detail": "Arabian-style rice & smoked chicken"},
-            {"name": "Ghee Rice Combo", "detail": "Multiple ghee rice variants"},
-            {"name": "Seekh Kebab Platter", "detail": "Char-grilled kebabs"},
+            {"veg": False, "name": "Hyderabadi Chicken Dum Biryani", "detail": "Signature slow-dum biryani"},
+            {"veg": False, "name": "Chicken Mandi", "detail": "Arabian-style rice & smoked chicken"},
+            {"veg": True, "name": "Ghee Rice Combo", "detail": "Multiple ghee rice variants"},
+            {"veg": False, "name": "Seekh Kebab Platter", "detail": "Char-grilled kebabs"},
         ],
         "cities": ["Bengaluru", "Chennai", "Coimbatore", "Mysuru"],
         "founded": "2021",
@@ -169,10 +169,10 @@ BRANDS = [
             "concept the team uses to test new formats."
         ),
         "menu": [
-            {"name": "Alfredo Pasta", "detail": "Creamy white sauce pasta"},
-            {"name": "Arrabbiata Penne", "detail": "Spicy tomato-basil pasta"},
-            {"name": "Farmhouse Pizza", "detail": "Classic veg-loaded pizza"},
-            {"name": "Garlic Bread Bites", "detail": "Side"},
+            {"veg": True, "name": "Alfredo Pasta", "detail": "Creamy white sauce pasta"},
+            {"veg": True, "name": "Arrabbiata Penne", "detail": "Spicy tomato-basil pasta"},
+            {"veg": True, "name": "Farmhouse Pizza", "detail": "Classic veg-loaded pizza"},
+            {"veg": True, "name": "Garlic Bread Bites", "detail": "Side"},
         ],
         "cities": ["Bengaluru", "Chennai", "Hyderabad"],
         "founded": "2021",
@@ -206,10 +206,10 @@ BRANDS = [
             "EAT360 to accelerate expansion beyond its Bengaluru and Mumbai launch markets."
         ),
         "menu": [
-            {"name": "Ragi Mudde Combo", "detail": "Karnataka-style millet ball with sambar"},
-            {"name": "Millet Bisi Bele Bath", "detail": "Millet-based one-pot rice"},
-            {"name": "Andhra Millet Thali", "detail": "5-states-in-1-plate format"},
-            {"name": "Jowar Dosa", "detail": "Multi-millet batter"},
+            {"veg": True, "name": "Ragi Mudde Combo", "detail": "Karnataka-style millet ball with sambar"},
+            {"veg": True, "name": "Millet Bisi Bele Bath", "detail": "Millet-based one-pot rice"},
+            {"veg": True, "name": "Andhra Millet Thali", "detail": "5-states-in-1-plate format"},
+            {"veg": True, "name": "Jowar Dosa", "detail": "Multi-millet batter"},
         ],
         "cities": ["Bengaluru", "Mumbai"],
         "founded": "2024",
@@ -250,10 +250,10 @@ BRANDS = [
             "new brand could alone."
         ),
         "menu": [
-            {"name": "Original Glazed Dozen", "detail": "The signature glazed doughnut"},
-            {"name": "Chocolate Iced Kreme Filled", "detail": "Filled doughnut"},
-            {"name": "Assorted Doughnut Box", "detail": "Mixed selection"},
-            {"name": "Kreme Coffee", "detail": "Hot & cold coffee range"},
+            {"veg": True, "name": "Original Glazed Dozen", "detail": "The signature glazed doughnut"},
+            {"veg": True, "name": "Chocolate Iced Kreme Filled", "detail": "Filled doughnut"},
+            {"veg": True, "name": "Assorted Doughnut Box", "detail": "Mixed selection"},
+            {"veg": True, "name": "Kreme Coffee", "detail": "Hot & cold coffee range"},
         ],
         "cities": ["Bengaluru", "Mumbai", "Delhi NCR", "Hyderabad", "Pune"],
         "founded": "2022 (Curefoods master franchise; global brand since 1937)",
@@ -287,10 +287,10 @@ BRANDS = [
             "Margherita sit on the same menu."
         ),
         "menu": [
-            {"name": "Peri Peri Paneer Pizza", "detail": "Hand-stretched, wood-fired base"},
-            {"name": "Korean BBQ Chicken Pizza", "detail": "Globally-inspired topping"},
-            {"name": "Classic Margherita", "detail": "San Marzano-style tomato base"},
-            {"name": "Nomad Meat Feast", "detail": "Four-meat loaded pizza"},
+            {"veg": True, "name": "Peri Peri Paneer Pizza", "detail": "Hand-stretched, wood-fired base"},
+            {"veg": False, "name": "Korean BBQ Chicken Pizza", "detail": "Globally-inspired topping"},
+            {"veg": True, "name": "Classic Margherita", "detail": "San Marzano-style tomato base"},
+            {"veg": False, "name": "Nomad Meat Feast", "detail": "Four-meat loaded pizza"},
         ],
         "cities": ["Bengaluru", "Hyderabad", "Mumbai", "Delhi NCR"],
         "founded": "2021",
@@ -321,10 +321,10 @@ BRANDS = [
             "urgency: same-day and midnight slots for last-minute celebrations."
         ),
         "menu": [
-            {"name": "Truffle Cake", "detail": "Half kg / 1 kg"},
-            {"name": "Red Velvet Cake", "detail": "Half kg / 1 kg"},
-            {"name": "Photo Cake", "detail": "Customisable"},
-            {"name": "Pull-Me-Up Cake", "detail": "Layered surprise cake"},
+            {"veg": True, "name": "Truffle Cake", "detail": "Half kg / 1 kg"},
+            {"veg": True, "name": "Red Velvet Cake", "detail": "Half kg / 1 kg"},
+            {"veg": True, "name": "Photo Cake", "detail": "Customisable"},
+            {"veg": True, "name": "Pull-Me-Up Cake", "detail": "Layered surprise cake"},
         ],
         "cities": ["Bengaluru", "Hyderabad", "Chennai", "Mumbai", "Delhi NCR", "Pune", "Kolkata"],
         "founded": "2020 (acquired by Curefoods)",

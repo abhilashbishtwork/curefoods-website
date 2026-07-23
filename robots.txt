@@ -1,3 +1,6 @@
+# Hi. We build the food brands, you index them. Deal?
+# — Curefoods
+
 User-agent: *
 Allow: /
 

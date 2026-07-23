@@ -497,8 +497,13 @@ def build_brands_index():
 
 
 def build_brand_page(b):
+    def veg_mark(m):
+        cls = "veg" if m.get("veg") else "nonveg"
+        label = "Vegetarian" if m.get("veg") else "Non-vegetarian"
+        return f'<span class="veg-mark {cls}" role="img" aria-label="{label}" title="{label}"><span class="dot"></span></span>'
+
     menu_html = "\n".join(
-        f'<div class="menu-item"><strong>{esc(m["name"])}</strong><div class="price">{esc(m["detail"])}</div></div>'
+        f'<div class="menu-item"><strong>{veg_mark(m)}{esc(m["name"])}</strong><div class="price">{esc(m["detail"])}</div></div>'
         for m in b["menu"]
     )
     cities_html = "".join(f'<span class="pill">{esc(c)}</span>' for c in b["cities"])
@@ -902,7 +907,10 @@ def build_sitemap():
 
 
 def build_robots():
-    txt = f"""User-agent: *
+    txt = f"""# Hi. We build the food brands, you index them. Deal?
+# — Curefoods
+
+User-agent: *
 Allow: /
 
 # AI / answer-engine crawlers explicitly welcomed
