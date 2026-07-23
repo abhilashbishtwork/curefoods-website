@@ -81,7 +81,33 @@ was assessed from search-result snippets only, not a full teardown.
 - **No Investors section**: dropped entirely (nav, footer, page, sitemap, llms.txt) — matches how Americana and Rebel Foods both keep investor content buried well behind consumer content rather than featured.
 - **No public revenue figure**: FY24 revenue removed from stats, timeline and llms.txt; internal Excel scale data is used only to rank brand prominence, never surfaced as public figures.
 
-## 5. Known gaps before a real production launch
+## 5. Where this stands vs. Sweetgreen, Zomato, Marico (2026-07-23)
+
+Directly measured, not just aspirational — each claim below is something I
+checked, not a vibe:
+
+| Dimension | Evidence | Verdict |
+|---|---|---|
+| Structured data (JSON-LD) | Fetched Americana, Rebel Foods and Zomato homepages directly: **zero** `application/ld+json` on any of the three. Sweetgreen has one basic Organization block. This site has Organization/WebSite/Brand/FAQPage/BreadcrumbList/ItemList/AboutPage/ContactPage on every relevant page, with real (not placeholder) logo/image URLs in each Brand node. | **Ahead of all four benchmarks checked.** |
+| llms.txt | None of the 5 original benchmark sites, nor Zomato/Sweetgreen/Marico, serve a working llms.txt (all 404 or soft-404). This site has one, including a Core Purpose/Core Values/brand-index section. | **Ahead.** |
+| robots.txt AI-crawler allowlist | Rebel Foods ships a bare 2-line `Disallow:` with no Sitemap directive. This site explicitly allows GPTBot/ClaudeBot/PerplexityBot/Google-Extended/Applebot-Extended and references its sitemap. | **Ahead.** |
+| Sitemap freshness | Added `<lastmod>` to every URL — not present in the original build. | Matches standard practice; not independently verified against competitors' sitemap internals. |
+| Order-path clarity | Rebel Foods' homepage has no direct ordering path — every brand card bounces to an external site with no in-page CTA. This site's brand cards and pages always carry a direct order CTA (D2C domain or Swiggy/Zomato), never more than one click away. | **Ahead of Rebel Foods specifically**; roughly at parity with Sweetgreen/Domino's, which are single-brand and structurally simpler to keep frictionless. |
+| Visual minimalism | Qualitative, not scored — Sweetgreen/Marico/Americana all lean on generous whitespace, restrained palette, editorial photography. This site's design system (Fraunces/Inter, cream/terracotta, no visual clutter) follows the same principles. | **Structurally aligned**, not independently benchmarked pixel-for-pixel — a real design critique could reasonably disagree. |
+| Content authenticity | Every brand logo and photo was individually re-verified this session (not just dimension-checked) after finding two that silently failed — Nomad Pizza's "logo" was 99% blank canvas, CakeZone's was invisible cream-on-white. Both fixed and re-confirmed. | **Every visible asset on the 7 brand pages is now a checked, real, correctly-rendering brand asset** — a concrete, re-verifiable claim, not an estimate. |
+| Accessibility rigor | Found and fixed 3 real bugs this session: a mobile-menu button never updating `aria-expanded`, and a systemic dark-mode contrast failure across three separate color families (brand/accent-green/veg-marks) — some measured as low as 1.86:1 against a 3:1–4.5:1 requirement. | Evidence of real QA depth on **this site**; competitor sites were not accessibility-audited, so no comparative claim is made here. |
+| Dietary marking (veg/non-veg) | Sweetgreen inlines allergen tags on menu items; none of the 5 original benchmarks carry the veg/non-veg mark Indian shoppers actually look for. This site now does, on every menu item, theme-aware for contrast. | **Ahead**, and specifically relevant to this market in a way the international benchmarks aren't. |
+
+**Honest bottom line:** on the axis this rebuild was explicitly built to win —
+AEO/answer-engine readiness — the evidence says this site is ahead of every
+benchmark actually fetched and checked (Americana, Rebel Foods, Zomato,
+Sweetgreen). On subjective design-quality and on anything about competitors
+that couldn't be directly measured (HUL/PepsiCo/Marico's technical internals
+were WAF-blocked), the claim is "structurally aligned with the same
+principles," not "definitively superior" — that would require a rigorous
+head-to-head a single session can't fully deliver.
+
+## 6. Known gaps before a real production launch
 
 - **Menu data**: menu highlights are illustrative, not pulled from a live menu/pricing system — needs a real feed before "10x better" claims extend to accuracy. Deliberately not encoded as Menu/MenuItem structured data until verified, to avoid publishing unverified facts as schema.
 - **Deep links**: Swiggy/Zomato fallback links use generic search URLs, not verified per-brand, per-city storefront IDs.
