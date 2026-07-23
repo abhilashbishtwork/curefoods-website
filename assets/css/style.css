@@ -161,7 +161,10 @@ p{margin:0 0 1em;}
 .hero-stats{display:flex;gap:32px;margin-top:40px;flex-wrap:wrap;}
 .stat b{display:block;font-family:var(--font-mono);font-weight:600;font-size:1.8rem;color:var(--ink);}
 .stat span{font-size:.85rem;color:var(--ink-soft);}
-.hero-art{display:flex;align-items:center;justify-content:center;padding:20px;}
+.hero-art{display:flex;flex-direction:column;gap:24px;align-items:center;}
+.hero-art-photo-wrap{position:relative;width:100%;aspect-ratio:16/11;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-2);}
+.hero-art-photo{width:100%;height:100%;object-fit:cover;display:block;}
+.hero-art-scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(33,32,28,0) 55%,rgba(33,32,28,.55) 100%);}
 
 /* Kitchen ticket — signature element */
 .kitchen-ticket{
@@ -181,8 +184,8 @@ p{margin:0 0 1em;}
 .kt-tear span:first-child{left:-24px;}
 .kt-tear span:last-child{right:-24px;}
 .kt-body{display:flex;flex-direction:column;gap:14px;}
-.kt-line{display:flex;align-items:center;gap:10px;font-size:.85rem;}
-.kt-swatch{width:10px;height:10px;border-radius:2px;flex:none;}
+.kt-line{display:flex;align-items:center;gap:12px;font-size:.85rem;}
+.kt-thumb{width:34px;height:34px;border-radius:50%;object-fit:cover;flex:none;border:1px solid var(--line);}
 .kt-item{flex:1;}
 .kt-brand{font-size:.7rem;font-weight:600;color:var(--ink-soft);letter-spacing:.04em;}
 .kt-foot{display:flex;justify-content:space-between;font-size:.72rem;font-weight:600;color:var(--ink-soft);letter-spacing:.08em;}

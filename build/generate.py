@@ -71,15 +71,15 @@ def kitchen_ticket_html():
     three different brands out of one kitchen — the site's whole thesis
     made into a literal, inspectable object instead of another stat row."""
     by_slug = {b["slug"]: b for b in BRANDS}
-    order = [by_slug["eatfit"], by_slug["sharief-bhai"], by_slug["cakezone"]]
+    order = [by_slug["eatfit"], by_slug["arambam"], by_slug["cakezone"]]
     lines = "".join(f"""
       <div class="kt-line">
-        <span class="kt-swatch" style="background:{b['color']}"></span>
+        <img class="kt-thumb" src="{u(b['photo'])}" alt="" loading="lazy">
         <span class="kt-item">1&times; {esc(b['menu'][0]['name'])}</span>
         <span class="kt-brand">{esc(b['name']).upper()}</span>
       </div>""" for b in order)
     return f"""
-<div class="kitchen-ticket" role="img" aria-label="A single Curefoods kitchen order ticket carrying one dish each from EatFit, Sharief Bhai and CakeZone — one kitchen, one route.">
+<div class="kitchen-ticket" role="img" aria-label="A single Curefoods kitchen order ticket carrying one dish each from EatFit, Arambam and CakeZone — one kitchen, one route.">
   <div class="kt-head">
     <span>TICKET&nbsp;№0417</span>
     <span class="kt-stamp">LIVE</span>
@@ -399,6 +399,10 @@ def build_home():
       <div class="hero-stats">{stats_html}</div>
     </div>
     <div class="hero-art">
+      <div class="hero-art-photo-wrap">
+        <img src="{u('/assets/images/photos/sharief-bhai-store.jpg')}" alt="Sharief Bhai's flagship store, lit up at night" class="hero-art-photo">
+        <div class="hero-art-scrim"></div>
+      </div>
       {kitchen_ticket_html()}
     </div>
   </div>
