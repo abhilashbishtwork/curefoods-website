@@ -70,8 +70,9 @@ def mark_html(b, extra_class=""):
     """Brand mark: real logo on a plain card if we have one, else a colored monogram badge."""
     cls = f"mark {extra_class}".strip()
     if b.get("logo"):
+        bg_style = f' style="background:{b["logo_bg"]}"' if b.get("logo_bg") else ""
         return (
-            f'<div class="{cls} mark-logo">'
+            f'<div class="{cls} mark-logo"{bg_style}>'
             f'<img src="{u(b["logo"])}" alt="{esc(b["name"])} logo" loading="lazy" width="120" height="120"></div>'
         )
     return f'<div class="{cls}" style="background:{b["color"]}">{initials(b["name"])}</div>'

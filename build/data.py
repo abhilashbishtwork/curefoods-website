@@ -309,6 +309,7 @@ BRANDS = [
         "category": "Cakes & Celebrations",
         "color": "#C24E7B",
         "logo": "/assets/images/logos/cakezone.svg",
+        "logo_bg": "#C24E7B",
         "photo": "/assets/images/photos/cakezone-food.jpg",
         "tagline": "Same-day cakes for every celebration.",
         "description": (
