@@ -66,6 +66,34 @@ ICON_SVG = {
 }
 
 
+def kitchen_ticket_html():
+    """The signature element: one real order ticket carrying dishes from
+    three different brands out of one kitchen — the site's whole thesis
+    made into a literal, inspectable object instead of another stat row."""
+    by_slug = {b["slug"]: b for b in BRANDS}
+    order = [by_slug["eatfit"], by_slug["sharief-bhai"], by_slug["cakezone"]]
+    lines = "".join(f"""
+      <div class="kt-line">
+        <span class="kt-swatch" style="background:{b['color']}"></span>
+        <span class="kt-item">1&times; {esc(b['menu'][0]['name'])}</span>
+        <span class="kt-brand">{esc(b['name']).upper()}</span>
+      </div>""" for b in order)
+    return f"""
+<div class="kitchen-ticket" role="img" aria-label="A single Curefoods kitchen order ticket carrying one dish each from EatFit, Sharief Bhai and CakeZone — one kitchen, one route.">
+  <div class="kt-head">
+    <span>TICKET&nbsp;№0417</span>
+    <span class="kt-stamp">LIVE</span>
+  </div>
+  <div class="kt-tear"><span></span><span></span></div>
+  <div class="kt-body">{lines}
+  </div>
+  <div class="kt-tear"><span></span><span></span></div>
+  <div class="kt-foot">
+    <span>1 KITCHEN</span><span>1 ROUTE</span><span>22 MIN</span>
+  </div>
+</div>"""
+
+
 def mark_html(b, extra_class=""):
     """Brand mark: real logo on a plain card if we have one, else a colored monogram badge."""
     cls = f"mark {extra_class}".strip()
@@ -113,7 +141,7 @@ def head(title, description, canonical, schema_objs=None, og_image=None):
 <meta name="twitter:image" content="{img}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{u('/assets/css/style.css')}">
 {ld}
 </head>
@@ -302,8 +330,9 @@ def order_links_html(b):
     swiggy = f"https://www.swiggy.com/search?query={quote(b['name'])}"
     zomato = f"https://www.zomato.com/search?q={quote(b['name'])}"
     if b.get("domain"):
+        domain_label = re.sub(r"^https?://(www\.)?", "", b["domain"]).rstrip("/")
         return f"""
-      <a href="{b['domain']}" target="_blank" rel="noopener" class="btn btn-primary">Order on {esc(b['name'])}.com</a>
+      <a href="{b['domain']}" target="_blank" rel="noopener" class="btn btn-primary">Order on {esc(domain_label)}</a>
       <a href="{swiggy}" target="_blank" rel="noopener" class="btn btn-ghost">Find on Swiggy</a>
       <a href="{zomato}" target="_blank" rel="noopener" class="btn btn-ghost">Find on Zomato</a>"""
     return f"""
@@ -369,8 +398,8 @@ def build_home():
       </div>
       <div class="hero-stats">{stats_html}</div>
     </div>
-    <div class="hero-art" aria-hidden="true">
-      {"".join(mark_html(b, "tile") for b in BRANDS[:9])}
+    <div class="hero-art">
+      {kitchen_ticket_html()}
     </div>
   </div>
 </section>
