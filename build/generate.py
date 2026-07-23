@@ -129,7 +129,7 @@ def header_html(active=""):
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap">
-    <a href="{u('/')}" class="logo"><span class="dot"></span>Curefoods</a>
+    <a href="{u('/')}" class="logo"><img src="{u('/assets/images/logos/curefoods.png')}" alt="Curefoods" class="logo-img"></a>
     <nav class="nav-desktop" aria-label="Primary">
       {nav_links}
     </nav>
@@ -146,7 +146,7 @@ def header_html(active=""):
 </header>
 <div class="mobile-menu" role="dialog" aria-modal="true" aria-label="Menu">
   <div class="mobile-menu-head">
-    <a href="{u('/')}" class="logo"><span class="dot"></span>Curefoods</a>
+    <a href="{u('/')}" class="logo"><img src="{u('/assets/images/logos/curefoods.png')}" alt="Curefoods" class="logo-img"></a>
     <button class="mobile-close" aria-label="Close menu">&times;</button>
   </div>
   {"".join(f'<a href="{u(i["href"])}">{i["label"]}</a>' for i in NAV)}
@@ -165,10 +165,10 @@ def footer_html():
   <div class="wrap">
     <div class="footer-grid">
       <div>
-        <a href="{u('/')}" class="logo" style="color:#fff"><span class="dot"></span>Curefoods</a>
+        <a href="{u('/')}" class="logo"><img src="{u('/assets/images/logos/curefoods.png')}" alt="Curefoods" class="logo-img"></a>
         <p style="max-width:34ch;margin-top:14px;color:#a99d8b">{esc(SITE["description"])}</p>
         <div class="footer-social mt" style="margin-top:20px">
-          <a href="{SITE['social']['instagram']}" aria-label="Instagram" target="_blank" rel="noopener">Instagram</a>
+          <a href="{SITE['social']['youtube']}" aria-label="YouTube" target="_blank" rel="noopener">YouTube</a>
           <a href="{SITE['social']['linkedin']}" aria-label="LinkedIn" target="_blank" rel="noopener">LinkedIn</a>
           <a href="{SITE['social']['twitter']}" aria-label="Twitter" target="_blank" rel="noopener">Twitter/X</a>
         </div>
@@ -185,7 +185,6 @@ def footer_html():
           <li><a href="{u('/about.html')}">About Us</a></li>
           <li><a href="{u('/newsroom.html')}">Newsroom</a></li>
           <li><a href="{u('/careers.html')}">Careers</a></li>
-          <li><a href="{u('/investors.html')}">Investors</a></li>
         </ul>
       </div>
       <div>
@@ -320,15 +319,22 @@ def order_links_html(b):
 
 
 def brand_card_html(b):
+    photo = (
+        f'<div class="brand-card-photo"><img src="{u(b["photo"])}" alt="{esc(b["name"])}" loading="lazy"></div>'
+        if b.get("photo") else ""
+    )
     return f"""
 <a class="brand-card" href="{u('/brands/' + b['slug'] + '.html')}">
-  {mark_html(b)}
-  <div>
-    <span class="cat">{esc(b['category'])}</span>
-    <h3>{esc(b['name'])}</h3>
+  {photo}
+  <div class="brand-card-body">
+    {mark_html(b)}
+    <div>
+      <span class="cat">{esc(b['category'])}</span>
+      <h3>{esc(b['name'])}</h3>
+    </div>
+    <p>{esc(b['tagline'])}</p>
+    <span class="go">Explore {esc(b['name'])} →</span>
   </div>
-  <p>{esc(b['tagline'])}</p>
-  <span class="go">Explore {esc(b['name'])} →</span>
 </a>"""
 
 
@@ -336,9 +342,9 @@ def brand_card_html(b):
 
 def build_home():
     hero_answer = (
-        f"Curefoods is India's house of food brands — {SITE['stats'][0]['value']} brands including "
-        f"EatFit, Sharief Bhai and CakeZone, run out of {SITE['stats'][1]['value']} kitchens in "
-        f"{SITE['stats'][2]['value']} cities."
+        f"Curefoods is India's house of food brands — home to EatFit, Sharief Bhai, Olio, "
+        f"Arambam, Krispy Kreme, Nomad Pizza and CakeZone, run out of {SITE['stats'][1]['value']} "
+        f"kitchens in {SITE['stats'][2]['value']} cities."
     )
     brand_cards = "\n".join(brand_card_html(b) for b in BRANDS)
     stats_html = "\n".join(
@@ -352,7 +358,7 @@ def build_home():
         <div class="ic">{ICON_SVG[v_ic]}</div>
         <h3>{esc(v["title"])}</h3>
         <p>{esc(v["text"])}</p>
-      </div>""" for v_ic, v in zip(["kitchen", "target", "chart", "bolt"], VALUES))
+      </div>""" for v_ic, v in zip(["kitchen", "target", "bolt"], VALUES))
 
     faq_preview = faq_list_html(SITE_FAQ[:6])
 
@@ -379,7 +385,7 @@ def build_home():
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">Our Brands</span>
-      <h2>{len(BRANDS)} brands, one occasion each.</h2>
+      <h2>Multiple brands, one occasion each.</h2>
       <p class="lede">Every Curefoods brand is built to own a single craving — health, biryani, pizza, dessert, celebration — instead of trying to be everything to everyone.</p>
     </div>
     <div class="brand-grid">{brand_cards}</div>
@@ -418,11 +424,10 @@ def build_home():
     <div class="cta-band">
       <div>
         <h2>Hungry already?</h2>
-        <p>Order from any Curefoods brand on your favourite delivery app.</p>
+        <p>Pick a brand and order directly from its own site or app.</p>
       </div>
       <div class="store-badges">
-        <a class="store-badge" href="https://www.swiggy.com" target="_blank" rel="noopener">Order on Swiggy</a>
-        <a class="store-badge" href="https://www.zomato.com" target="_blank" rel="noopener">Order on Zomato</a>
+        <a class="store-badge" href="{u('/brands.html')}">Explore our brands →</a>
       </div>
     </div>
   </div>
@@ -498,9 +503,14 @@ def build_brand_page(b):
     desc = b["description"]
     direct_answer = desc if desc.strip().lower().startswith(b["name"].lower()) else f"{b['name']} is {desc[0].lower()}{desc[1:]}"
 
+    photo_html = (
+        f'<div class="brand-hero-photo"><img src="{u(b["photo"])}" alt="{esc(b["name"])}" loading="lazy"></div>'
+        if b.get("photo") else ""
+    )
     body = f"""
 <section class="brand-hero">
-  <div class="wrap">
+  <div class="wrap brand-hero-grid">
+    <div>
     <div class="crumbs"><a href="{u('/')}">Home</a> / <a href="{u('/brands.html')}">Our Brands</a> / {esc(b['name'])}</div>
     <div class="brand-hero-top">
       {mark_html(b, "mark-lg")}
@@ -512,6 +522,8 @@ def build_brand_page(b):
     <div class="pill-row">{cities_html}</div>
     <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:10px">{order_links_html(b)}
     </div>
+    </div>
+    {photo_html}
   </div>
 </section>
 
@@ -602,7 +614,7 @@ def build_about():
 </section>
 
 <section class="section-tight">
-  <div class="wrap grid-2">
+  <div class="wrap grid-2" style="align-items:center">
     <div class="card">
       <h3>Leadership</h3>
       <p><strong>{SITE['founder']}</strong> — Founder &amp; CEO. Previously co-founder and Chief Business Officer at Cure.fit (Cult.fit).</p>
@@ -611,6 +623,19 @@ def build_about():
       <h3>Headquarters</h3>
       <p>{SITE['hq']}</p>
       <p>Press enquiries: <a href="mailto:{SITE['press_email']}">{SITE['press_email']}</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="section-tight section-alt">
+  <div class="wrap grid-2" style="align-items:center">
+    <div>
+      <span class="eyebrow">Behind the brands</span>
+      <h2>One team, running kitchens across the country.</h2>
+      <p class="lede">From kitchen crews to delivery riders, the people running Curefoods' shared kitchen network are what makes a house-of-brands model actually work at delivery speed.</p>
+    </div>
+    <div class="brand-hero-photo" style="aspect-ratio:4/3">
+      <img src="{u('/assets/images/photos/curefoods-mascot.jpg')}" alt="Curefoods delivery" loading="lazy">
     </div>
   </div>
 </section>
@@ -678,12 +703,17 @@ def build_faq_page():
 def build_careers():
     body = f"""
 <section class="brand-hero">
-  <div class="wrap">
+  <div class="wrap brand-hero-grid">
+    <div>
     <div class="crumbs"><a href="{u('/')}">Home</a> / Careers</div>
     <span class="eyebrow">Careers</span>
     <h1>Build the next great food brand.</h1>
     <p class="lede">Curefoods hires across kitchen operations, supply chain, growth, product and central functions — for {SITE['name']} and every brand in the portfolio.</p>
     <div style="margin-top:24px"><a href="mailto:{SITE['careers_email']}" class="btn btn-primary">Email your resume</a></div>
+    </div>
+    <div class="brand-hero-photo">
+      <img src="{u('/assets/images/photos/curefoods-mascot.jpg')}" alt="Life at Curefoods" loading="lazy">
+    </div>
   </div>
 </section>
 <section class="section-tight">
@@ -710,45 +740,6 @@ def build_careers():
         schema_objs=schema,
     )
     write("careers.html", html)
-
-
-def build_investors():
-    stats_band = "\n".join(f'<div><b>{s["value"]}</b><span>{esc(s["label"])}</span></div>' for s in SITE["stats"])
-    body = f"""
-<section class="brand-hero">
-  <div class="wrap">
-    <div class="crumbs"><a href="{u('/')}">Home</a> / Investors</div>
-    <span class="eyebrow">Investors</span>
-    <h1>Backing India's house of food brands.</h1>
-    <p class="lede">Curefoods has scaled to {SITE['stats'][3]['value']} in FY24 revenue across {SITE['stats'][0]['value']} brands and {SITE['stats'][1]['value']} kitchens in {SITE['stats'][2]['value']} cities.</p>
-  </div>
-</section>
-<section class="section-tight section-dark">
-  <div class="wrap"><div class="stats-band">{stats_band}</div></div>
-</section>
-<section class="section-tight">
-  <div class="wrap grid-2">
-    <div class="card">
-      <h3>Investor relations</h3>
-      <p>For funding, partnership or press enquiries, write to <a href="mailto:{SITE['contact_email']}">{SITE['contact_email']}</a>.</p>
-    </div>
-    <div class="card">
-      <h3>Press</h3>
-      <p>Media enquiries: <a href="mailto:{SITE['press_email']}">{SITE['press_email']}</a>. See also our <a href="{u('/newsroom.html')}">Newsroom</a>.</p>
-    </div>
-  </div>
-</section>
-"""
-    schema = [breadcrumb_schema([("Home", DOMAIN + "/"), ("Investors", DOMAIN + "/investors.html")])]
-    html = page(
-        "Investors — Curefoods",
-        "Investor relations for Curefoods, India's house of food brands — FY24 revenue, scale and portfolio metrics.",
-        "/investors.html",
-        body,
-        active="/investors.html",
-        schema_objs=schema,
-    )
-    write("investors.html", html)
 
 
 def build_newsroom():
@@ -809,7 +800,7 @@ def build_contact():
     ]
     html = page(
         "Contact — Curefoods",
-        "Contact Curefoods for general, support, careers, press or investor enquiries.",
+        "Contact Curefoods for general, support, careers or press enquiries.",
         "/contact.html",
         body,
         active="",
@@ -858,7 +849,7 @@ def build_404():
 
 def build_sitemap():
     urls = ["/", "/brands.html", "/about.html", "/faq.html", "/careers.html",
-            "/investors.html", "/newsroom.html", "/contact.html",
+            "/newsroom.html", "/contact.html",
             "/legal/privacy.html", "/legal/terms.html"]
     urls += [f"/brands/{b['slug']}.html" for b in BRANDS]
     items = "\n".join(f"  <url><loc>{DOMAIN}{u}</loc></url>" for u in urls)
@@ -896,7 +887,7 @@ def build_llms_txt():
         f"> {SITE['description']}",
         "",
         f"Founded {SITE['founded_year']} by {SITE['founder']}. Headquartered in {SITE['hq']}.",
-        f"Scale: {SITE['stats'][0]['value']} brands, {SITE['stats'][1]['value']} kitchens/stores, {SITE['stats'][2]['value']} cities, {SITE['stats'][3]['value']} FY24 revenue.",
+        f"Scale: {SITE['stats'][0]['value']} brands, {SITE['stats'][1]['value']} kitchens/stores, {SITE['stats'][2]['value']} cities.",
         "",
         "## Brands",
     ]
@@ -908,7 +899,6 @@ def build_llms_txt():
         f"- [About]({DOMAIN}/about.html): Company history, founder, timeline, values.",
         f"- [FAQ]({DOMAIN}/faq.html): Company-wide and per-brand frequently asked questions.",
         f"- [Careers]({DOMAIN}/careers.html): Open roles across the portfolio.",
-        f"- [Investors]({DOMAIN}/investors.html): Investor relations and company metrics.",
         f"- [Newsroom]({DOMAIN}/newsroom.html): Press and milestones.",
         "",
         "## Notes for AI assistants",
@@ -996,7 +986,6 @@ def main():
     build_about()
     build_faq_page()
     build_careers()
-    build_investors()
     build_newsroom()
     build_contact()
     build_legal()
