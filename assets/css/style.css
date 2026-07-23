@@ -192,6 +192,13 @@ p{margin:0 0 1em;}
 /* Feature rows */
 .feature-row{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
 @media (max-width:880px){.feature-row{grid-template-columns:1fr;}}
+
+/* Core values */
+.values-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center;}
+@media (max-width:760px){.values-grid{grid-template-columns:repeat(2,1fr);}}
+.value-card{padding:28px 16px;border-radius:var(--radius);background:var(--white);border:1px solid var(--line);}
+.value-card img{width:88px;height:88px;object-fit:contain;margin:0 auto 16px;display:block;}
+.value-card h3{font-size:1.05rem;margin:0;}
 .feature{padding:28px;border-radius:var(--radius);background:var(--white);border:1px solid var(--line);}
 .feature .ic{width:30px;height:30px;margin-bottom:14px;color:var(--brand);}
 .feature .ic svg{width:100%;height:100%;display:block;}

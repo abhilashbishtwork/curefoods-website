@@ -19,7 +19,7 @@ import sys
 from urllib.parse import quote
 
 sys.path.insert(0, os.path.dirname(__file__))
-from data import SITE, NAV, BRANDS, SITE_FAQ, VALUES, TIMELINE  # noqa: E402
+from data import SITE, NAV, BRANDS, SITE_FAQ, VALUES, TIMELINE, CORE_PURPOSE, CORE_VALUES  # noqa: E402
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 DOMAIN = SITE["domain"]
@@ -237,6 +237,7 @@ def org_schema():
         "legalName": SITE["legal_name"],
         "url": DOMAIN,
         "logo": f"{DOMAIN}/assets/images/logos/curefoods.png",
+        "slogan": CORE_PURPOSE["title"],
         "foundingDate": SITE["founded_year"],
         "founder": {"@type": "Person", "name": SITE["founder"]},
         "description": SITE["description"],
@@ -594,6 +595,14 @@ def build_about():
     <div class="item"><span class="yr">{esc(t['year'])}</span><p>{esc(t['text'])}</p></div>""" for t in TIMELINE)
     values_html = "".join(f"""
       <div class="feature"><h3>{esc(v['title'])}</h3><p>{esc(v['text'])}</p></div>""" for v in VALUES)
+    purpose_paras = "".join(
+        f'<p class="{"lede" if i == 0 else ""}">{esc(p)}</p>' for i, p in enumerate(CORE_PURPOSE["paragraphs"])
+    )
+    core_values_html = "".join(f"""
+      <div class="value-card">
+        <img src="{u(v['icon'])}" alt="{esc(v['title'])}" loading="lazy">
+        <h3>{esc(v['title'])}</h3>
+      </div>""" for v in CORE_VALUES)
     body = f"""
 <section class="brand-hero">
   <div class="wrap">
@@ -601,6 +610,14 @@ def build_about():
     <span class="eyebrow">About Curefoods</span>
     <h1>We build food brands the way operators build companies.</h1>
     <p class="lede">Founded in {SITE['founded_year']} by {SITE['founder']}, Curefoods is a {SITE['hq']}-headquartered house of food brands running {len(BRANDS)}+ brands from a shared kitchen network across 60+ Indian cities.</p>
+  </div>
+</section>
+
+<section class="section-tight section-alt">
+  <div class="wrap" style="max-width:760px">
+    <span class="eyebrow">{esc(CORE_PURPOSE['eyebrow'])}</span>
+    <h2>{esc(CORE_PURPOSE['title'])}</h2>
+    {purpose_paras}
   </div>
 </section>
 
@@ -612,6 +629,13 @@ def build_about():
 </section>
 
 <section class="section-tight section-alt">
+  <div class="wrap">
+    <div class="section-head center"><span class="eyebrow">Core Values</span><h2>What we stand for</h2></div>
+    <div class="values-grid">{core_values_html}</div>
+  </div>
+</section>
+
+<section class="section-tight">
   <div class="wrap grid-2" style="align-items:center">
     <div>
       <span class="eyebrow">Where we operate</span>
@@ -624,7 +648,7 @@ def build_about():
   </div>
 </section>
 
-<section class="section-tight">
+<section class="section-tight section-alt">
   <div class="wrap">
     <div class="section-head"><span class="eyebrow">How we operate</span><h2>What makes the model work</h2></div>
     <div class="feature-row">{values_html}</div>
@@ -908,6 +932,13 @@ def build_llms_txt():
         "",
         f"Founded {SITE['founded_year']} by {SITE['founder']}. Headquartered in {SITE['hq']}.",
         f"Scale: {SITE['stats'][0]['value']} brands, {SITE['stats'][1]['value']} kitchens/stores, {SITE['stats'][2]['value']} cities.",
+        "",
+        f"## Core Purpose: {CORE_PURPOSE['title']}",
+        "",
+        " ".join(CORE_PURPOSE["paragraphs"]),
+        "",
+        "## Core Values",
+        "- " + ", ".join(v["title"] for v in CORE_VALUES),
         "",
         "## Brands",
     ]

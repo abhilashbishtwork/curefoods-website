@@ -409,6 +409,25 @@ VALUES = [
     {"title": "Data-run, fast to the door", "text": "Menu, pricing and kitchen placement are driven by order-level data, and kitchen density is built to shrink delivery time without shrinking food quality."},
 ]
 
+CORE_PURPOSE = {
+    "eyebrow": "Core Purpose",
+    "title": "Create Iconic Food Brands",
+    "paragraphs": [
+        "Food is not just a necessity. It is a daily part of how people live, feel, and connect.",
+        "Every meal is a moment.",
+        "And over time, these moments build trust... and habit.",
+        "At Curefoods, our role is not just to serve food, but to build brands that customers choose, remember, and come back to.",
+        "We are here to create iconic food brands that customers remember, trust and love for years to come.",
+    ],
+}
+
+CORE_VALUES = [
+    {"title": "Love for Food", "icon": "/assets/images/values/value-love-for-food.png"},
+    {"title": "Do More with Less", "icon": "/assets/images/values/value-do-more-with-less.png"},
+    {"title": "Act Like an Owner", "icon": "/assets/images/values/value-act-like-owner.png"},
+    {"title": "Pursuit of Excellence", "icon": "/assets/images/values/value-pursuit-excellence.png"},
+]
+
 TIMELINE = [
     {"year": "2020", "text": "Curefoods founded by Ankit Nagori; EatFit launches as the flagship brand."},
     {"year": "2021", "text": "Portfolio expands rapidly — Sharief Bhai, Nomad Pizza, Olio, Frozen Bottle and CakeZone join or launch."},
