@@ -19,7 +19,7 @@ import sys
 from urllib.parse import quote
 
 sys.path.insert(0, os.path.dirname(__file__))
-from data import SITE, NAV, BRANDS, SITE_FAQ, VALUES, TIMELINE, CORE_PURPOSE, CORE_VALUES  # noqa: E402
+from data import SITE, NAV, BRANDS, SITE_FAQ, VALUES, TIMELINE, CORE_PURPOSE, CORE_VALUES, NEWS_MENTIONS  # noqa: E402
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 DOMAIN = SITE["domain"]
@@ -792,6 +792,12 @@ def build_careers():
 
 
 def build_newsroom():
+    news_html = "".join(f"""
+      <a class="news-card" href="{esc(n['url'])}" target="_blank" rel="noopener">
+        <span class="news-source">{esc(n['source'])}</span>
+        <h3>{esc(n['title'])}</h3>
+        <span class="go">Read more →</span>
+      </a>""" for n in NEWS_MENTIONS)
     body = f"""
 <section class="brand-hero">
   <div class="wrap">
@@ -804,7 +810,14 @@ def build_newsroom():
 </section>
 <section class="section-tight">
   <div class="wrap">
-    <div class="timeline">
+    <div class="section-head"><span class="eyebrow">In the Press</span><h2>Third-party coverage</h2></div>
+    <div class="news-grid">{news_html}</div>
+  </div>
+</section>
+<section class="section-tight section-alt">
+  <div class="wrap">
+    <div class="section-head"><span class="eyebrow">Milestones</span><h2>Company timeline</h2></div>
+    <div class="timeline mt">
       {"".join(f'<div class="item"><span class="yr">{esc(t["year"])}</span><p>{esc(t["text"])}</p></div>' for t in TIMELINE)}
     </div>
   </div>

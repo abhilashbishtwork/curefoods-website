@@ -187,6 +187,14 @@ p{margin:0 0 1em;}
 .brand-card .cat{font-size:.8rem;color:var(--ink-soft);font-weight:600;text-transform:uppercase;letter-spacing:.06em;}
 .brand-card p{color:var(--ink-soft);font-size:.92rem;margin-bottom:0;}
 .card-stat{font-size:.78rem;font-weight:700;color:var(--brand-dark);background:var(--brand-tint);display:inline-block;padding:4px 10px;border-radius:100px;width:fit-content;}
+
+/* Newsroom press coverage */
+.news-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;}
+.news-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:24px;text-decoration:none;color:var(--ink);display:flex;flex-direction:column;gap:10px;transition:transform .2s ease,box-shadow .2s ease;}
+.news-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-2);}
+.news-source{font-size:.78rem;font-weight:700;color:var(--brand);text-transform:uppercase;letter-spacing:.06em;}
+.news-card h3{font-size:1.05rem;margin:0;}
+.news-card .go{margin-top:auto;font-size:.85rem;font-weight:700;color:var(--brand);}
 .brand-card .go{margin-top:auto;font-size:.85rem;font-weight:700;color:var(--brand);}
 
 /* Feature rows */

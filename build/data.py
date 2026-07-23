@@ -435,3 +435,37 @@ TIMELINE = [
     {"year": "2023", "text": "'Kitchens of EatFit' formally launches with Hrithik Roshan as brand ambassador and investor; Millet Express and Madras Curd Rice Company join."},
     {"year": "2024", "text": "Curefoods scales past 400+ kitchens and stores across 60+ cities; Arambam launches with Rakul Preet Singh."},
 ]
+
+# Real third-party press coverage — verified live before adding, not written by Curefoods.
+NEWS_MENTIONS = [
+    {
+        "title": "Here's how Ankit Nagori plans to scale Curefoods",
+        "source": "Business Today",
+        "url": "https://www.businesstoday.in/latest/corporate/story/heres-how-ankit-nagori-plans-to-scale-curefoods-526760-2026-04-21",
+    },
+    {
+        "title": "Curefoods to unveil flagship Sharief Bhai Food Plaza in Bengaluru",
+        "source": "Nuffoods Spectrum",
+        "url": "https://nuffoodsspectrum.in/2025/06/02/curefoods-to-unveil-flagship-sharief-bhai-food-plaza-in-bengaluru.html",
+    },
+    {
+        "title": "Sharief Bhai strengthens Bengaluru presence with multi-format food plaza",
+        "source": "Restaurant India",
+        "url": "https://www.restaurantindia.in/news/sharief-bhai-strengthens-bengaluru-presence-with-multi-format-food-plaza.n12901",
+    },
+    {
+        "title": "Curefoods' subsidiary Millet Express enters master franchise agreement with EAT360 for Arambam",
+        "source": "Restaurant India",
+        "url": "https://www.restaurantindia.in/news/curefoods-signs-18-month-franchise-agreement-with-eat360-for-arambam-brand.n12946",
+    },
+    {
+        "title": "Curefoods backs millet-based food brand Millet Express",
+        "source": "Entrackr",
+        "url": "https://entrackr.com/2023/07/curefoods-backs-millet-based-food-brand-millet-express/",
+    },
+    {
+        "title": "Ankit Nagori, CEO of Curefoods, on building India's cloud kitchen empire",
+        "source": "Franchise India",
+        "url": "https://www.franchiseindia.com/insights/en/interview/ankit-nagori-ceo-of-curefoods-on-building-indias-cloud-kitchen-empire.57613",
+    },
+]
