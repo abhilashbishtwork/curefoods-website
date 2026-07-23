@@ -897,11 +897,13 @@ def build_404():
 # --------------------------------------------------------------- static / meta
 
 def build_sitemap():
+    import datetime
+    lastmod = datetime.date.today().isoformat()
     urls = ["/", "/brands.html", "/about.html", "/faq.html", "/careers.html",
             "/newsroom.html", "/contact.html",
             "/legal/privacy.html", "/legal/terms.html"]
     urls += [f"/brands/{b['slug']}.html" for b in BRANDS]
-    items = "\n".join(f"  <url><loc>{DOMAIN}{u}</loc></url>" for u in urls)
+    items = "\n".join(f"  <url><loc>{DOMAIN}{u}</loc><lastmod>{lastmod}</lastmod></url>" for u in urls)
     xml = f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{items}\n</urlset>\n'
     write("sitemap.xml", xml)
 
