@@ -9,6 +9,7 @@
   --brand:#E6461C;
   --brand-dark:#B8330F;
   --brand-tint:#FFE9DE;
+  --brand-text:#B8330F;
   --accent-green:#1F6D4C;
   --accent-green-tint:#E1F0E7;
   --gold:#D69A2D;
@@ -31,6 +32,7 @@
   --brand-tint:#3A2013;
   --accent-green-tint:#122A1F;
   --white:#1D1A15;
+  --brand-text:#FF6A3D;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
@@ -42,6 +44,7 @@
     --brand-tint:#3A2013;
     --accent-green-tint:#122A1F;
     --white:#1D1A15;
+    --brand-text:#FF6A3D;
   }
 }
 
@@ -68,7 +71,7 @@ p{margin:0 0 1em;}
 .eyebrow{
   display:inline-flex;align-items:center;gap:8px;
   font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
-  color:var(--brand-dark);margin-bottom:14px;
+  color:var(--brand-text);margin-bottom:14px;
 }
 .lede{font-size:clamp(1.05rem,1.6vw,1.25rem);color:var(--ink-soft);max-width:62ch;}
 
@@ -186,16 +189,16 @@ p{margin:0 0 1em;}
 .brand-card h3{margin-bottom:2px;}
 .brand-card .cat{font-size:.8rem;color:var(--ink-soft);font-weight:600;text-transform:uppercase;letter-spacing:.06em;}
 .brand-card p{color:var(--ink-soft);font-size:.92rem;margin-bottom:0;}
-.card-stat{font-size:.78rem;font-weight:700;color:var(--brand-dark);background:var(--brand-tint);display:inline-block;padding:4px 10px;border-radius:100px;width:fit-content;}
+.card-stat{font-size:.78rem;font-weight:700;color:var(--brand-text);background:var(--brand-tint);display:inline-block;padding:4px 10px;border-radius:100px;width:fit-content;}
 
 /* Newsroom press coverage */
 .news-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;}
 .news-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:24px;text-decoration:none;color:var(--ink);display:flex;flex-direction:column;gap:10px;transition:transform .2s ease,box-shadow .2s ease;}
 .news-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-2);}
-.news-source{font-size:.78rem;font-weight:700;color:var(--brand);text-transform:uppercase;letter-spacing:.06em;}
+.news-source{font-size:.78rem;font-weight:700;color:var(--brand-text);text-transform:uppercase;letter-spacing:.06em;}
 .news-card h3{font-size:1.05rem;margin:0;}
-.news-card .go{margin-top:auto;font-size:.85rem;font-weight:700;color:var(--brand);}
-.brand-card .go{margin-top:auto;font-size:.85rem;font-weight:700;color:var(--brand);}
+.news-card .go{margin-top:auto;font-size:.85rem;font-weight:700;color:var(--brand-text);}
+.brand-card .go{margin-top:auto;font-size:.85rem;font-weight:700;color:var(--brand-text);}
 
 /* Feature rows */
 .feature-row{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
@@ -231,7 +234,7 @@ p{margin:0 0 1em;}
 .timeline{border-left:2px solid var(--line);padding-left:28px;display:flex;flex-direction:column;gap:36px;}
 .timeline .item{position:relative;}
 .timeline .item::before{content:"";position:absolute;left:-33px;top:4px;width:12px;height:12px;border-radius:50%;background:var(--brand);}
-.timeline .yr{font-weight:700;color:var(--brand-dark);font-size:.9rem;}
+.timeline .yr{font-weight:700;color:var(--brand-text);font-size:.9rem;}
 
 /* Cards generic */
 .card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:26px;}
@@ -242,7 +245,7 @@ p{margin:0 0 1em;}
 /* Menu highlight list */
 .menu-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;}
 .menu-item{background:var(--white);border:1px solid var(--line);border-radius:var(--radius-sm);padding:16px 18px;}
-.menu-item .price{color:var(--brand-dark);font-weight:700;font-size:.9rem;}
+.menu-item .price{color:var(--brand-text);font-weight:700;font-size:.9rem;}
 .veg-mark{display:inline-flex;width:14px;height:14px;border:1.5px solid;border-radius:2px;align-items:center;justify-content:center;margin-right:8px;vertical-align:middle;}
 .veg-mark.veg{border-color:#0c8a3e;}
 .veg-mark.veg .dot{width:7px;height:7px;border-radius:50%;background:#0c8a3e;}
@@ -252,7 +255,7 @@ p{margin:0 0 1em;}
 /* Breadcrumb */
 .crumbs{font-size:.85rem;color:var(--ink-soft);margin-bottom:18px;}
 .crumbs a{text-decoration:none;color:var(--ink-soft);}
-.crumbs a:hover{color:var(--brand);}
+.crumbs a:hover{color:var(--brand-text);}
 
 /* Brand hero variants */
 .brand-hero{padding:64px 0 40px;border-bottom:1px solid var(--line);}
