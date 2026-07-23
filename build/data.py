@@ -10,17 +10,17 @@ SITE = {
     "domain": "https://curefoods.in",
     "tagline": "India's house of food brands",
     "description": (
-        "Curefoods is India's leading house of food brands, building and scaling "
+        "Curefoods is India's house of food brands, building and scaling "
         "category-defining F&B brands — from healthy meals to biryani, pizza to "
-        "desserts — out of 400+ kitchens and stores across 60+ cities."
+        "desserts — out of 281 cloud kitchens, 99 kiosks and 122 restaurants."
     ),
     "founder": "Ankit Nagori",
     "founded_year": "2020",
     "hq": "Bengaluru, Karnataka, India",
     "stats": [
-        {"value": "15+", "label": "Brands under one roof"},
-        {"value": "400+", "label": "Kitchens & stores"},
-        {"value": "60+", "label": "Cities served"},
+        {"value": "281", "label": "Cloud kitchens"},
+        {"value": "99", "label": "Kiosks"},
+        {"value": "122", "label": "Restaurants"},
     ],
     "social": {
         "youtube": "https://www.youtube.com/@the_curefoods",
@@ -75,7 +75,7 @@ BRANDS = [
             {"veg": False, "name": "Grilled Chicken Salad", "detail": "310 kcal · 28g protein"},
             {"veg": True, "name": "Quinoa Khichdi", "detail": "340 kcal · 14g protein"},
         ],
-        "cities": ["Bengaluru", "Hyderabad", "Chennai", "Mumbai", "Delhi NCR", "Pune"],
+        "cities": ["Bengaluru", "Hyderabad", "Chennai", "Mumbai", "Delhi NCR"],
         "founded": "2020",
         "ambassador": "Hrithik Roshan (brand ambassador & investor)",
         "faq": [
@@ -92,7 +92,7 @@ BRANDS = [
             },
             {
                 "q": "Which cities is EatFit available in?",
-                "a": "EatFit operates in Bengaluru, Hyderabad, Chennai, Mumbai, Delhi NCR and Pune, with kitchens "
+                "a": "EatFit operates in Bengaluru, Hyderabad, Chennai, Mumbai and Delhi NCR, with kitchens "
                      "expanding as Curefoods opens new cloud-kitchen clusters.",
             },
         ],
@@ -126,7 +126,8 @@ BRANDS = [
             {"veg": True, "name": "Ghee Rice Combo", "detail": "Multiple ghee rice variants"},
             {"veg": False, "name": "Seekh Kebab Platter", "detail": "Char-grilled kebabs"},
         ],
-        "cities": ["Bengaluru", "Chennai", "Coimbatore", "Mysuru"],
+        "cities": ["Bengaluru", "Chennai", "Coimbatore", "Mysore", "Mangalore", "Manipal", "Tumkur", "Hassan", "Puducherry", "Hosur"],
+        "store_count": "54",
         "founded": "2021",
         "flagship": "Mosque Road, Frazer Town, Bengaluru",
         "faq": [
@@ -137,8 +138,10 @@ BRANDS = [
             },
             {
                 "q": "Is Sharief Bhai available outside Karnataka?",
-                "a": "Sharief Bhai operates across Karnataka and Tamil Nadu clusters; it does not currently "
-                     "have stores in Hyderabad or the rest of Telangana.",
+                "a": "Sharief Bhai runs 54 stores across 10 cities in Karnataka (Bengaluru, Mysore, "
+                     "Mangalore, Manipal, Tumkur, Hassan), Tamil Nadu (Chennai, Coimbatore, Hosur) "
+                     "and Puducherry — it does not currently have stores in Hyderabad or the rest "
+                     "of Telangana.",
             },
             {
                 "q": "What is the difference between Sharief Bhai and Roz Shawarma?",
@@ -174,7 +177,8 @@ BRANDS = [
             {"veg": True, "name": "Farmhouse Pizza", "detail": "Classic veg-loaded pizza"},
             {"veg": True, "name": "Garlic Bread Bites", "detail": "Side"},
         ],
-        "cities": ["Bengaluru", "Chennai", "Hyderabad"],
+        "cities": ["Bengaluru", "Hyderabad", "Chennai", "Mumbai", "Delhi", "Pune", "Kolkata", "Ahmedabad"],
+        "store_count": "200+",
         "founded": "2021",
         "faq": [
             {
@@ -211,7 +215,7 @@ BRANDS = [
             {"veg": True, "name": "Andhra Millet Thali", "detail": "5-states-in-1-plate format"},
             {"veg": True, "name": "Jowar Dosa", "detail": "Multi-millet batter"},
         ],
-        "cities": ["Bengaluru", "Mumbai"],
+        "cities": ["Bengaluru", "Mumbai", "Hyderabad"],
         "founded": "2024",
         "ambassador": "Rakul Preet Singh (brand partner)",
         "faq": [
@@ -255,7 +259,8 @@ BRANDS = [
             {"veg": True, "name": "Assorted Doughnut Box", "detail": "Mixed selection"},
             {"veg": True, "name": "Kreme Coffee", "detail": "Hot & cold coffee range"},
         ],
-        "cities": ["Bengaluru", "Mumbai", "Delhi NCR", "Hyderabad", "Pune"],
+        "cities": ["Bengaluru", "Hyderabad", "Chennai", "Delhi NCR", "Jaipur", "Chandigarh"],
+        "store_count": "84",
         "founded": "2022 (Curefoods master franchise; global brand since 1937)",
         "faq": [
             {
@@ -327,8 +332,9 @@ BRANDS = [
             {"veg": True, "name": "Photo Cake", "detail": "Customisable"},
             {"veg": True, "name": "Pull-Me-Up Cake", "detail": "Layered surprise cake"},
         ],
-        "cities": ["Bengaluru", "Hyderabad", "Chennai", "Mumbai", "Delhi NCR", "Pune", "Kolkata"],
+        "cities": ["Bengaluru", "Hyderabad", "Chennai", "Mumbai", "Delhi NCR", "Pune", "Kolkata", "Ahmedabad"],
         "founded": "2020 (acquired by Curefoods)",
+        "ambassador": "Nora Fatehi (brand ambassador & investor)",
         "faq": [
             {
                 "q": "Does CakeZone deliver at midnight?",
@@ -351,10 +357,9 @@ SITE_FAQ = [
     },
     {
         "q": "How many brands does Curefoods own?",
-        "a": "Curefoods operates 15+ brands, including EatFit, Sharief Bhai, Roz Shawarma, Nomad "
-             "Pizza, Frozen Bottle, Olio, CakeZone, Arambam, the Kitchens-of-EatFit family "
-             "(Rolls on Wheels, Great Indian Khichdi, Homeplate, Chaat Street, Millet Express, "
-             "Madras Curd Rice Company), and master-franchise partner Krispy Kreme.",
+        "a": "Curefoods' published brand portfolio includes Kitchens of EatFit, Sharief Bhai, "
+             "Olio Pizza, Arambam, Nomad Pizza, CakeZone and Frozen Bottle, plus master-franchise "
+             "partner Krispy Kreme.",
     },
     {
         "q": "What is a 'house of brands' model, and why does Curefoods use it?",
@@ -364,9 +369,9 @@ SITE_FAQ = [
              "biryani, dessert) to the same customer without diluting any single brand's identity.",
     },
     {
-        "q": "How many cities and kitchens does Curefoods operate?",
-        "a": "As of its latest reported figures, Curefoods runs 400+ kitchens and stores across "
-             "60+ cities in India, with select brands also present internationally.",
+        "q": "How many kitchens and stores does Curefoods operate?",
+        "a": "As of March 31, 2025, Curefoods runs 281 cloud kitchens, 99 kiosks and 122 "
+             "restaurants across India.",
     },
     {
         "q": "Who founded Curefoods and when?",
@@ -429,44 +434,53 @@ CORE_VALUES = [
     {"title": "Pursuit of Excellence", "icon": "/assets/images/values/value-pursuit-excellence.png"},
 ]
 
-TIMELINE = [
-    {"year": "2020", "text": "Curefoods founded by Ankit Nagori; EatFit launches as the flagship brand."},
-    {"year": "2021", "text": "Portfolio expands rapidly — Sharief Bhai, Nomad Pizza, Olio, Frozen Bottle and CakeZone join or launch."},
-    {"year": "2022", "text": "Roz Shawarma, Rolls on Wheels and Chaat Street launch; Curefoods signs on as Krispy Kreme's India master franchisee; Kitchens of EatFit shared-kitchen model takes shape."},
-    {"year": "2023", "text": "'Kitchens of EatFit' formally launches with Hrithik Roshan as brand ambassador and investor; Millet Express and Madras Curd Rice Company join."},
-    {"year": "2024", "text": "Curefoods scales past 400+ kitchens and stores across 60+ cities; Arambam launches with Rakul Preet Singh."},
-]
+# Pulled verbatim from curefoods.in/about ("We serve happiness to your plate
+# across India" stats block) — not inferred or estimated.
+FACILITY_STATS = {
+    "as_of": "March 31, 2025",
+    "items": [
+        {"label": "Cloud Kitchens", "value": "281"},
+        {"label": "Kiosks", "value": "99"},
+        {"label": "Restaurants", "value": "122"},
+    ],
+}
 
 # Real third-party press coverage — verified live before adding, not written by Curefoods.
 NEWS_MENTIONS = [
     {
         "title": "Here's how Ankit Nagori plans to scale Curefoods",
         "source": "Business Today",
+        "photo": "/assets/images/photos/curefoods-mascot.jpg",
         "url": "https://www.businesstoday.in/latest/corporate/story/heres-how-ankit-nagori-plans-to-scale-curefoods-526760-2026-04-21",
     },
     {
         "title": "Curefoods to unveil flagship Sharief Bhai Food Plaza in Bengaluru",
         "source": "Nuffoods Spectrum",
+        "photo": "/assets/images/photos/sharief-bhai-store.jpg",
         "url": "https://nuffoodsspectrum.in/2025/06/02/curefoods-to-unveil-flagship-sharief-bhai-food-plaza-in-bengaluru.html",
     },
     {
         "title": "Sharief Bhai strengthens Bengaluru presence with multi-format food plaza",
         "source": "Restaurant India",
+        "photo": "/assets/images/photos/sharief-bhai-store.jpg",
         "url": "https://www.restaurantindia.in/news/sharief-bhai-strengthens-bengaluru-presence-with-multi-format-food-plaza.n12901",
     },
     {
         "title": "Curefoods' subsidiary Millet Express enters master franchise agreement with EAT360 for Arambam",
         "source": "Restaurant India",
+        "photo": "/assets/images/photos/arambam-food.jpg",
         "url": "https://www.restaurantindia.in/news/curefoods-signs-18-month-franchise-agreement-with-eat360-for-arambam-brand.n12946",
     },
     {
         "title": "Curefoods backs millet-based food brand Millet Express",
         "source": "Entrackr",
+        "photo": "/assets/images/photos/arambam-food.jpg",
         "url": "https://entrackr.com/2023/07/curefoods-backs-millet-based-food-brand-millet-express/",
     },
     {
         "title": "Ankit Nagori, CEO of Curefoods, on building India's cloud kitchen empire",
         "source": "Franchise India",
+        "photo": "/assets/images/photos/india-map.png",
         "url": "https://www.franchiseindia.com/insights/en/interview/ankit-nagori-ceo-of-curefoods-on-building-indias-cloud-kitchen-empire.57613",
     },
 ]

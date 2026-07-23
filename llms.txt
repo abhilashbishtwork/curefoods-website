@@ -1,9 +1,9 @@
 # Curefoods
 
-> Curefoods is India's leading house of food brands, building and scaling category-defining F&B brands — from healthy meals to biryani, pizza to desserts — out of 400+ kitchens and stores across 60+ cities.
+> Curefoods is India's house of food brands, building and scaling category-defining F&B brands — from healthy meals to biryani, pizza to desserts — out of 281 cloud kitchens, 99 kiosks and 122 restaurants.
 
 Founded 2020 by Ankit Nagori. Headquartered in Bengaluru, Karnataka, India.
-Scale: 15+ brands, 400+ kitchens/stores, 60+ cities.
+Scale (as of March 31, 2025): 281 cloud kitchens, 99 kiosks, 122 restaurants.
 
 ## Core Purpose: Create Iconic Food Brands
 
@@ -13,13 +13,13 @@ Food is not just a necessity. It is a daily part of how people live, feel, and c
 - Love for Food, Do More with Less, Act Like an Owner, Pursuit of Excellence
 
 ## Brands
-- [EatFit](https://curefoods.in/brands/eatfit.html): Calorie-counted meals for people who refuse to compromise. — Healthy Meals, serving Bengaluru, Hyderabad, Chennai, Mumbai, Delhi NCR, Pune.
-- [Sharief Bhai](https://curefoods.in/brands/sharief-bhai.html): Old-city biryani and Arabian mandi, done right. — Biryani & Mandi, serving Bengaluru, Chennai, Coimbatore, Mysuru.
-- [Olio](https://curefoods.in/brands/olio.html): Italian comfort food, kitchen-fresh. — Pizza & Italian, serving Bengaluru, Chennai, Hyderabad.
-- [Arambam](https://curefoods.in/brands/arambam.html): 5 states in 1 plate — wholesome South Indian, built on millets. — Millet-first South Indian, serving Bengaluru, Mumbai.
-- [Krispy Kreme](https://curefoods.in/brands/krispy-kreme.html): The world's doughnut, made fresh in India. — Doughnuts & Coffee (Global Partner Brand), serving Bengaluru, Mumbai, Delhi NCR, Hyderabad, Pune.
+- [EatFit](https://curefoods.in/brands/eatfit.html): Calorie-counted meals for people who refuse to compromise. — Healthy Meals, serving Bengaluru, Hyderabad, Chennai, Mumbai, Delhi NCR.
+- [Sharief Bhai](https://curefoods.in/brands/sharief-bhai.html): Old-city biryani and Arabian mandi, done right. — Biryani & Mandi, serving Bengaluru, Chennai, Coimbatore, Mysore, Mangalore, Manipal, Tumkur, Hassan, Puducherry, Hosur.
+- [Olio](https://curefoods.in/brands/olio.html): Italian comfort food, kitchen-fresh. — Pizza & Italian, serving Bengaluru, Hyderabad, Chennai, Mumbai, Delhi, Pune, Kolkata, Ahmedabad.
+- [Arambam](https://curefoods.in/brands/arambam.html): 5 states in 1 plate — wholesome South Indian, built on millets. — Millet-first South Indian, serving Bengaluru, Mumbai, Hyderabad.
+- [Krispy Kreme](https://curefoods.in/brands/krispy-kreme.html): The world's doughnut, made fresh in India. — Doughnuts & Coffee (Global Partner Brand), serving Bengaluru, Hyderabad, Chennai, Delhi NCR, Jaipur, Chandigarh.
 - [Nomad Pizza](https://curefoods.in/brands/nomad-pizza.html): Hand-stretched pizza, globally inspired. — Pizza, serving Bengaluru, Hyderabad, Mumbai, Delhi NCR.
-- [CakeZone](https://curefoods.in/brands/cakezone.html): Same-day cakes for every celebration. — Cakes & Celebrations, serving Bengaluru, Hyderabad, Chennai, Mumbai, Delhi NCR, Pune, Kolkata.
+- [CakeZone](https://curefoods.in/brands/cakezone.html): Same-day cakes for every celebration. — Cakes & Celebrations, serving Bengaluru, Hyderabad, Chennai, Mumbai, Delhi NCR, Pune, Kolkata, Ahmedabad.
 
 ## Key pages
 - [About](https://curefoods.in/about.html): Company history, founder, timeline, values.

@@ -19,7 +19,7 @@ import sys
 from urllib.parse import quote
 
 sys.path.insert(0, os.path.dirname(__file__))
-from data import SITE, NAV, BRANDS, SITE_FAQ, VALUES, TIMELINE, CORE_PURPOSE, CORE_VALUES, NEWS_MENTIONS  # noqa: E402
+from data import SITE, NAV, BRANDS, SITE_FAQ, VALUES, FACILITY_STATS, CORE_PURPOSE, CORE_VALUES, NEWS_MENTIONS  # noqa: E402
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 DOMAIN = SITE["domain"]
@@ -171,7 +171,7 @@ def footer_html():
         <div class="footer-social mt" style="margin-top:20px">
           <a href="{SITE['social']['youtube']}" aria-label="YouTube" target="_blank" rel="noopener">YouTube</a>
           <a href="{SITE['social']['linkedin']}" aria-label="LinkedIn" target="_blank" rel="noopener">LinkedIn</a>
-          <a href="{SITE['social']['twitter']}" aria-label="Twitter" target="_blank" rel="noopener">Twitter/X</a>
+          <a href="{SITE['social']['twitter']}" aria-label="Twitter" target="_blank" rel="noopener">Twitter</a>
         </div>
       </div>
       <div>
@@ -186,18 +186,8 @@ def footer_html():
           <li><a href="{u('/about.html')}">About Us</a></li>
           <li><a href="{u('/newsroom.html')}">Newsroom</a></li>
           <li><a href="{u('/careers.html')}">Careers</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Resources</h4>
-        <ul>
           <li><a href="{u('/faq.html')}">FAQ</a></li>
           <li><a href="{u('/contact.html')}">Contact</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Legal</h4>
-        <ul>
           <li><a href="{u('/legal/privacy.html')}">Privacy Policy</a></li>
           <li><a href="{u('/legal/terms.html')}">Terms of Use</a></li>
         </ul>
@@ -347,8 +337,8 @@ def brand_card_html(b):
 def build_home():
     hero_answer = (
         f"Curefoods is India's house of food brands — home to EatFit, Sharief Bhai, Olio, "
-        f"Arambam, Krispy Kreme, Nomad Pizza and CakeZone, run out of {SITE['stats'][1]['value']} "
-        f"kitchens in {SITE['stats'][2]['value']} cities."
+        f"Arambam, Krispy Kreme, Nomad Pizza and CakeZone, run out of {SITE['stats'][0]['value']} "
+        f"cloud kitchens, {SITE['stats'][1]['value']} kiosks and {SITE['stats'][2]['value']} restaurants."
     )
     brand_cards = "\n".join(brand_card_html(b) for b in BRANDS)
     stats_html = "\n".join(
@@ -468,7 +458,7 @@ def build_brands_index():
     <div class="section-head">
       <span class="eyebrow">Our Brands</span>
       <h1>Every Curefoods brand, in one place.</h1>
-      <p class="lede">Curefoods runs {len(BRANDS)} brands out of a shared kitchen network across 60+ Indian cities — from calorie-tracked healthy meals to old-city biryani, hand-stretched pizza and midnight cake delivery.</p>
+      <p class="lede">Curefoods runs {len(BRANDS)} flagship brands out of a shared kitchen network of 281 cloud kitchens, 99 kiosks and 122 restaurants — from calorie-tracked healthy meals to old-city biryani, hand-stretched pizza and midnight cake delivery.</p>
     </div>
     <div class="brand-grid">{cards}</div>
   </div>
@@ -506,6 +496,10 @@ def build_brand_page(b):
         for m in b["menu"]
     )
     cities_html = "".join(f'<span class="pill">{esc(c)}</span>' for c in b["cities"])
+    if b.get("store_count"):
+        footprint_line = f'<p class="footprint-line"><strong>{esc(b["store_count"])} stores</strong> across {len(b["cities"])} cities</p>'
+    else:
+        footprint_line = f'<p class="footprint-line">Live in {len(b["cities"])} cities</p>'
     faq_html = faq_list_html(b["faq"]) if b["faq"] else ""
     ambassador_html = f'<p><strong>Ambassador:</strong> {esc(b["ambassador"])}</p>' if b.get("ambassador") else ""
     flagship_html = f'<p><strong>Flagship store:</strong> {esc(b["flagship"])}</p>' if b.get("flagship") else ""
@@ -528,6 +522,7 @@ def build_brand_page(b):
     <h1>{esc(b['full_name'])}</h1>
     <p class="lede">{esc(b['tagline'])}</p>
     <div class="faq-answer-box">{esc(direct_answer)}</div>
+    {footprint_line}
     <div class="pill-row">{cities_html}</div>
     <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:10px">{order_links_html(b)}
     </div>
@@ -595,8 +590,9 @@ def build_brand_page(b):
 
 
 def build_about():
-    timeline_html = "".join(f"""
-    <div class="item"><span class="yr">{esc(t['year'])}</span><p>{esc(t['text'])}</p></div>""" for t in TIMELINE)
+    facility_stats_html = "\n".join(
+        f'<div><b>{esc(item["value"])}</b><span>{esc(item["label"])}</span></div>' for item in FACILITY_STATS["items"]
+    )
     values_html = "".join(f"""
       <div class="feature"><h3>{esc(v['title'])}</h3><p>{esc(v['text'])}</p></div>""" for v in VALUES)
     purpose_paras = "".join(
@@ -613,7 +609,7 @@ def build_about():
     <div class="crumbs"><a href="{u('/')}">Home</a> / About Us</div>
     <span class="eyebrow">About Curefoods</span>
     <h1>We build food brands the way operators build companies.</h1>
-    <p class="lede">Founded in {SITE['founded_year']} by {SITE['founder']}, Curefoods is a {SITE['hq']}-headquartered house of food brands running {len(BRANDS)}+ brands from a shared kitchen network across 60+ Indian cities.</p>
+    <p class="lede" style="max-width:none">Founded in {SITE['founded_year']}, Curefoods is India's house of food brands — {len(BRANDS)}+ flagship brands, 281 cloud kitchens, 99 kiosks, 122 restaurants.</p>
   </div>
 </section>
 
@@ -625,10 +621,11 @@ def build_about():
   </div>
 </section>
 
-<section class="section-tight">
+<section class="section-tight section-dark">
   <div class="wrap">
-    <h2>Timeline</h2>
-    <div class="timeline mt">{timeline_html}</div>
+    <div class="section-head"><span class="eyebrow">Our Footprint</span><h2>We serve happiness to your plate across India.</h2></div>
+    <div class="stats-band">{facility_stats_html}</div>
+    <p style="margin-top:24px;color:#a99d8b;font-size:.85rem">Particulars as of {esc(FACILITY_STATS['as_of'])}.</p>
   </div>
 </section>
 
@@ -793,9 +790,12 @@ def build_careers():
 def build_newsroom():
     news_html = "".join(f"""
       <a class="news-card" href="{esc(n['url'])}" target="_blank" rel="noopener">
+        <div class="news-card-photo"><img src="{u(n['photo'])}" alt="" loading="lazy"></div>
+        <div class="news-card-body">
         <span class="news-source">{esc(n['source'])}</span>
         <h3>{esc(n['title'])}</h3>
         <span class="go">Read more →</span>
+        </div>
       </a>""" for n in NEWS_MENTIONS)
     body = f"""
 <section class="brand-hero">
@@ -813,12 +813,11 @@ def build_newsroom():
     <div class="news-grid">{news_html}</div>
   </div>
 </section>
-<section class="section-tight section-alt">
+<section class="section-tight section-dark">
   <div class="wrap">
-    <div class="section-head"><span class="eyebrow">Milestones</span><h2>Company timeline</h2></div>
-    <div class="timeline mt">
-      {"".join(f'<div class="item"><span class="yr">{esc(t["year"])}</span><p>{esc(t["text"])}</p></div>' for t in TIMELINE)}
-    </div>
+    <div class="section-head"><span class="eyebrow">Our Footprint</span><h2>We serve happiness to your plate across India.</h2></div>
+    <div class="stats-band">{"".join(f'<div><b>{esc(item["value"])}</b><span>{esc(item["label"])}</span></div>' for item in FACILITY_STATS["items"])}</div>
+    <p style="margin-top:24px;color:#a99d8b;font-size:.85rem">Particulars as of {esc(FACILITY_STATS['as_of'])}.</p>
   </div>
 </section>
 """
@@ -953,7 +952,7 @@ def build_llms_txt():
         f"> {SITE['description']}",
         "",
         f"Founded {SITE['founded_year']} by {SITE['founder']}. Headquartered in {SITE['hq']}.",
-        f"Scale: {SITE['stats'][0]['value']} brands, {SITE['stats'][1]['value']} kitchens/stores, {SITE['stats'][2]['value']} cities.",
+        f"Scale (as of {FACILITY_STATS['as_of']}): {SITE['stats'][0]['value']} cloud kitchens, {SITE['stats'][1]['value']} kiosks, {SITE['stats'][2]['value']} restaurants.",
         "",
         f"## Core Purpose: {CORE_PURPOSE['title']}",
         "",

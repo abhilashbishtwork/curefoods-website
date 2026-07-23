@@ -113,5 +113,10 @@ head-to-head a single session can't fully deliver.
 - **Deep links**: Swiggy/Zomato fallback links use generic search URLs, not verified per-brand, per-city storefront IDs.
 - **Legal pages**: privacy policy and terms are explicit placeholders pending legal review.
 - **Analytics/consent**: no analytics or cookie-consent layer wired in yet.
-- **Stats**: kitchen count and city count are sourced from public reporting and should be reconciled against internal numbers before publishing.
-- **Nomad Pizza logo/photo source** (nomadpizza.in) could not be 100% confirmed as the Curefoods-owned brand vs. an unrelated pizzeria of the same name — worth a manual check.
+- **Company-wide facility stats** (281 cloud kitchens / 99 kiosks / 122 restaurants) are pulled verbatim from curefoods.in/about, "as of March 31, 2025" per their own site — accurate to that source, but that source is ~4 months stale relative to "today."
+- **Per-brand store counts have mixed confidence, by design** — published only where a real source exists, never invented:
+  - Sharief Bhai: 54 stores / 10 cities — high confidence, itemized first-party data from shariefbhai.com's own locator.
+  - Krispy Kreme: 84 stores — high confidence, cross-confirmed by 3 independent June 2026 trade press sources.
+  - Olio: "200+" stores — medium confidence, single press source from July 2025 (~1 year stale).
+  - EatFit, Arambam, Nomad Pizza, CakeZone: **no store count shown** — Swiggy/Zomato block programmatic enumeration and no first-party locator/press figure could be verified; showing cities only rather than guessing a total.
+- **Nomad Pizza brand identity**: resolved — Inc42's coverage of Curefoods' Yumlane acquisition independently lists Nomad Pizza among Curefoods' brands, confirming nomadpizza.in is the correct source (previously flagged as unconfirmed).
