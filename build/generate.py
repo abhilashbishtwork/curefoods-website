@@ -193,8 +193,6 @@ def footer_html():
         <ul>
           <li><a href="{u('/faq.html')}">FAQ</a></li>
           <li><a href="{u('/contact.html')}">Contact</a></li>
-          <li><a href="{u('/sitemap.xml')}">Sitemap</a></li>
-          <li><a href="{u('/llms.txt')}">llms.txt</a></li>
         </ul>
       </div>
       <div>
@@ -665,7 +663,7 @@ def build_about():
   <div class="wrap grid-2" style="align-items:center">
     <div class="card">
       <h3>Leadership</h3>
-      <p><strong>{SITE['founder']}</strong> — Founder &amp; CEO. Previously co-founder and Chief Business Officer at Cure.fit (Cult.fit).</p>
+      <p><strong>{SITE['founder']}</strong> — Founder &amp; CEO. Previously co-founder of Cure.fit (Cult.fit) and Chief Business Officer at Flipkart.</p>
     </div>
     <div class="card">
       <h3>Headquarters</h3>

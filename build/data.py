@@ -370,8 +370,8 @@ SITE_FAQ = [
     },
     {
         "q": "Who founded Curefoods and when?",
-        "a": "Curefoods was founded in 2020 by Ankit Nagori, former co-founder and Chief Business "
-             "Officer of Cure.fit (Cult.fit), who set out to apply the same operating rigor to "
+        "a": "Curefoods was founded in 2020 by Ankit Nagori, former co-founder of Cure.fit "
+             "(Cult.fit) and former Chief Business Officer of Flipkart, who set out to apply the same operating rigor to "
              "the food-brands business.",
     },
     {
