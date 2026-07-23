@@ -5,14 +5,16 @@
   var toggle = document.querySelector(".nav-toggle");
   var menu = document.querySelector(".mobile-menu");
   var close = document.querySelector(".mobile-close");
+  function openMenu(){ menu.classList.add("open"); document.body.style.overflow="hidden"; if(toggle) toggle.setAttribute("aria-expanded","true"); }
+  function closeMenu(){ menu.classList.remove("open"); document.body.style.overflow=""; if(toggle) toggle.setAttribute("aria-expanded","false"); }
   if(toggle && menu){
-    toggle.addEventListener("click", function(){ menu.classList.add("open"); document.body.style.overflow="hidden"; });
+    toggle.addEventListener("click", openMenu);
   }
   if(close && menu){
-    close.addEventListener("click", function(){ menu.classList.remove("open"); document.body.style.overflow=""; });
+    close.addEventListener("click", closeMenu);
   }
   menu && menu.querySelectorAll("a").forEach(function(a){
-    a.addEventListener("click", function(){ menu.classList.remove("open"); document.body.style.overflow=""; });
+    a.addEventListener("click", closeMenu);
   });
 
   // Theme toggle (persists preference; defaults to system)
