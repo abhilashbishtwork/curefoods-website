@@ -323,6 +323,8 @@ def brand_schema(b):
     }
     if b.get("photo"):
         schema["image"] = f"{DOMAIN}{b['photo']}"
+    if b.get("instagram"):
+        schema["sameAs"] = [b["instagram"]]
     return schema
 
 
@@ -343,15 +345,19 @@ def faq_list_html(items, group_class="faq-list"):
 def order_links_html(b):
     swiggy = f"https://www.swiggy.com/search?query={quote(b['name'])}"
     zomato = f"https://www.zomato.com/search?q={quote(b['name'])}"
+    insta = (
+        f'\n      <a href="{b["instagram"]}" target="_blank" rel="noopener" class="btn btn-ghost">Instagram</a>'
+        if b.get("instagram") else ""
+    )
     if b.get("domain"):
         domain_label = re.sub(r"^https?://(www\.)?", "", b["domain"]).rstrip("/")
         return f"""
       <a href="{b['domain']}" target="_blank" rel="noopener" class="btn btn-primary">Order on {esc(domain_label)}</a>
       <a href="{swiggy}" target="_blank" rel="noopener" class="btn btn-ghost">Find on Swiggy</a>
-      <a href="{zomato}" target="_blank" rel="noopener" class="btn btn-ghost">Find on Zomato</a>"""
+      <a href="{zomato}" target="_blank" rel="noopener" class="btn btn-ghost">Find on Zomato</a>{insta}"""
     return f"""
       <a href="{swiggy}" target="_blank" rel="noopener" class="btn btn-primary">Order on Swiggy</a>
-      <a href="{zomato}" target="_blank" rel="noopener" class="btn btn-ghost">Order on Zomato</a>"""
+      <a href="{zomato}" target="_blank" rel="noopener" class="btn btn-ghost">Order on Zomato</a>{insta}"""
 
 
 def brand_card_html(b):

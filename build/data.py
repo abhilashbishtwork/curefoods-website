@@ -56,6 +56,7 @@ BRANDS = [
         "color": "#1F6D4C",
         "logo": "/assets/images/logos/eatfit.png",
         "photo": "/assets/images/photos/eatfit-food.jpg",
+        "instagram": "https://www.instagram.com/the_eatfit",
         "tagline": "Calorie-counted meals for people who refuse to compromise.",
         "description": (
             "EatFit is Curefoods' flagship healthy-eating brand, delivering "
@@ -99,6 +100,27 @@ BRANDS = [
                 "a": "EatFit operates in Bengaluru, Hyderabad, Chennai, Mumbai and Delhi NCR, with kitchens "
                      "expanding as Curefoods opens new cloud-kitchen clusters.",
             },
+            {
+                "q": "Is EatFit good for weight loss?",
+                "a": "EatFit portions and labels every meal with exact calories, protein, carbs and fat, "
+                     "which makes it easier to track intake toward a weight or fitness goal. As with any "
+                     "meal plan, results depend on overall diet and activity, not any single meal.",
+            },
+            {
+                "q": "Does EatFit have both vegetarian and non-vegetarian meals?",
+                "a": "Yes — EatFit's menu spans both, from grilled chicken and Peri Peri chicken rice "
+                     "bowls to paneer and quinoa khichdi options, all nutrition-labelled the same way.",
+            },
+            {
+                "q": "Who is EatFit's brand ambassador?",
+                "a": "Actor Hrithik Roshan is EatFit's brand ambassador and an investor in the brand.",
+            },
+            {
+                "q": "Can I order EatFit as a one-time meal or only as a subscription?",
+                "a": "EatFit meals can be ordered à la carte through Swiggy, Zomato or EatFit's own app "
+                     "and website — there's no subscription requirement, though many customers use it "
+                     "for regular, everyday meal planning.",
+            },
         ],
     },
     {
@@ -110,6 +132,7 @@ BRANDS = [
         "logo": "/assets/images/logos/sharief-bhai.png",
         "photo": "/assets/images/photos/sharief-bhai-store.jpg",
         "domain": "https://www.shariefbhai.com",
+        "instagram": "https://www.instagram.com/shariefbhai_biryani/",
         "tagline": "Old-city biryani and Arabian mandi, done right.",
         "description": (
             "Sharief Bhai brings authentic Karnataka-style biryani, mandi and kebabs to "
@@ -152,6 +175,21 @@ BRANDS = [
                 "a": "Roz Shawarma is Sharief Bhai's sibling brand focused only on shawarma and rolls, "
                      "sharing kitchens but running a lighter, faster menu for quick-bite occasions.",
             },
+            {
+                "q": "Is Sharief Bhai's meat halal?",
+                "a": "Yes — per Sharief Bhai's own FAQ, the brand uses 100% halal meat across all its outlets.",
+            },
+            {
+                "q": "Does Sharief Bhai have vegetarian options?",
+                "a": "Yes — alongside its biryani and mandi range, Sharief Bhai serves vegetarian dishes "
+                     "such as ghee rice, soya chaap biryani and paneer-based items.",
+            },
+            {
+                "q": "Is Sharief Bhai available outside India?",
+                "a": "Sharief Bhai opened its first international outlet at BurJuman Mall in Dubai in "
+                     "November 2024, marking the brand's expansion into the UAE alongside its home "
+                     "market in India.",
+            },
         ],
     },
     {
@@ -164,6 +202,7 @@ BRANDS = [
         "logo_bg": "#F9F1DD",
         "photo": "/assets/images/photos/olio-food.jpg",
         "domain": "https://www.oliopizza.in",
+        "instagram": "https://www.instagram.com/oliopizza.in",
         "tagline": "Italian comfort food, kitchen-fresh.",
         "description": (
             "Olio serves Italian-inspired comfort food — pizza, pasta and sides — as one of "
@@ -190,7 +229,17 @@ BRANDS = [
                 "q": "What is Enso and how is it related to Olio?",
                 "a": "Enso is a related, smaller-format concept run out of select Olio kitchens as Curefoods "
                      "tests new menu formats; it is not available in every city Olio serves.",
-            }
+            },
+            {
+                "q": "Which cities is Olio available in?",
+                "a": "Olio operates in Bengaluru, Hyderabad, Chennai, Mumbai, Delhi, Pune, Kolkata and "
+                     "Ahmedabad, across roughly 200 kitchens.",
+            },
+            {
+                "q": "Is Olio pizza made fresh to order?",
+                "a": "Yes — Olio's positioning is built around cooking pizza and pasta fresh per order "
+                     "rather than pre-batching or reheating.",
+            },
         ],
     },
     {
@@ -203,6 +252,7 @@ BRANDS = [
         "logo_bg": "#4D4D24",
         "photo": "/assets/images/photos/arambam-food.jpg",
         "domain": "https://www.arambam.com",
+        "instagram": "https://www.instagram.com/arambamofficial",
         "tagline": "5 states in 1 plate — wholesome South Indian, built on millets.",
         "description": (
             "Arambam is Curefoods' celebrity-backed South Indian brand, run out of its "
@@ -235,6 +285,17 @@ BRANDS = [
                 "a": "Arambam is run by Curefoods' Millet Express subsidiary, which also operates the "
                      "separate Millet Express brand; the two share ownership but run distinct menus and storefronts.",
             },
+            {
+                "q": "Why does Arambam use millets instead of rice or wheat?",
+                "a": "Millets generally have a lower glycaemic index and higher fibre content than white "
+                     "rice or refined wheat, which is the nutritional case Arambam builds its menu around. "
+                     "This is general dietary information, not medical advice.",
+            },
+            {
+                "q": "Which cities is Arambam available in?",
+                "a": "Arambam operates in Bengaluru, Mumbai and Hyderabad, having launched its first "
+                     "restaurant in Hyderabad in April 2024.",
+            },
         ],
     },
     {
@@ -246,6 +307,7 @@ BRANDS = [
         "logo": "/assets/images/logos/krispy-kreme.png",
         "photo": "/assets/images/photos/krispy-kreme-food.jpg",
         "domain": "https://www.krispykremeindia.in",
+        "instagram": "https://www.instagram.com/krispykreme_ind/",
         "tagline": "The world's doughnut, made fresh in India.",
         "description": (
             "Krispy Kreme is a global doughnut and coffee brand that Curefoods brought to "
@@ -275,6 +337,21 @@ BRANDS = [
                      "franchisee, running local stores and delivery under Krispy Kreme's international "
                      "recipes and standards rather than owning the underlying IP.",
             },
+            {
+                "q": "When did Krispy Kreme first come to India?",
+                "a": "Krispy Kreme first opened in India in Bengaluru in January 2013 under an earlier "
+                     "operator. Curefoods later became the brand's exclusive franchisee across India.",
+            },
+            {
+                "q": "Are Krispy Kreme doughnuts in India vegetarian or eggless?",
+                "a": "Krispy Kreme adapted its recipe for India with an eggless doughnut formulation, "
+                     "reflecting the vegetarian and egg-free dietary preferences common among Indian customers.",
+            },
+            {
+                "q": "Which cities is Krispy Kreme available in?",
+                "a": "Krispy Kreme runs 150+ stores across Bengaluru, Hyderabad, Chennai, Delhi NCR, "
+                     "Jaipur and Chandigarh under Curefoods.",
+            },
         ],
     },
     {
@@ -285,6 +362,7 @@ BRANDS = [
         "color": "#A62639",
         "logo": "/assets/images/logos/nomad-pizza.png",
         "photo": "/assets/images/photos/nomad-pizza-food.jpg",
+        "instagram": "https://www.instagram.com/nomadpizzaofficial",
         "tagline": "Hand-stretched pizza, globally inspired.",
         "description": (
             "Nomad Pizza brings artisanal, hand-stretched pizzas with globally inspired "
@@ -310,7 +388,16 @@ BRANDS = [
                 "q": "What makes Nomad Pizza different from other pizza delivery brands?",
                 "a": "Nomad Pizza hand-stretches every base to order and builds its menu around "
                      "globally-inspired toppings like Peri Peri and Korean BBQ alongside classics.",
-            }
+            },
+            {
+                "q": "Who founded Nomad Pizza?",
+                "a": "Nomad Pizza was founded by Amit Ajwani in Delhi in 2019, before Curefoods "
+                     "acquired the brand in October 2021.",
+            },
+            {
+                "q": "Which cities is Nomad Pizza available in?",
+                "a": "Nomad Pizza operates in Bengaluru, Hyderabad, Mumbai and Delhi NCR.",
+            },
         ],
     },
     {
@@ -322,6 +409,7 @@ BRANDS = [
         "logo": "/assets/images/logos/cakezone.svg",
         "logo_bg": "#C24E7B",
         "photo": "/assets/images/photos/cakezone-food.jpg",
+        "instagram": "https://www.instagram.com/cakezone.patisserie",
         "tagline": "Same-day cakes for every celebration.",
         "description": (
             "CakeZone is Curefoods' cakes and celebration-desserts brand, built around "
@@ -346,7 +434,26 @@ BRANDS = [
                 "q": "Does CakeZone deliver at midnight?",
                 "a": "Yes — CakeZone offers midnight and same-day delivery slots designed for "
                      "last-minute birthday and anniversary celebrations.",
-            }
+            },
+            {
+                "q": "Does CakeZone offer eggless cakes?",
+                "a": "Yes — per CakeZone's own FAQ, it carries a full menu of 100% eggless cakes "
+                     "across its flavours, not a limited add-on selection.",
+            },
+            {
+                "q": "How fast can CakeZone deliver a cake?",
+                "a": "Beyond same-day and midnight slots, CakeZone offers express delivery within "
+                     "60 minutes in select areas, per its own FAQ.",
+            },
+            {
+                "q": "Can I personalize a CakeZone cake with a name or message?",
+                "a": "Yes — CakeZone lets customers add a name or message at checkout on select "
+                     "cakes for personalization.",
+            },
+            {
+                "q": "Who is CakeZone's brand ambassador?",
+                "a": "Actor Nora Fatehi is CakeZone's brand ambassador and an investor in the brand.",
+            },
         ],
     },
 ]
@@ -412,6 +519,31 @@ SITE_FAQ = [
     {
         "q": "How can franchise or partnership enquiries reach Curefoods?",
         "a": "Franchise and partnership enquiries can be sent to hello@curefoods.in.",
+    },
+    {
+        "q": "Are Curefoods' kitchens FSSAI-licensed and hygienic?",
+        "a": "Yes. Every food business operating in India, including cloud kitchens listed on Swiggy "
+             "or Zomato, is required to hold a valid FSSAI licence, and Curefoods' kitchens operate "
+             "under that same regulatory requirement.",
+    },
+    {
+        "q": "What should I do if my order from a Curefoods brand has a problem?",
+        "a": "For orders placed through Swiggy or Zomato, use that platform's order-help or refund flow "
+             "first, since they process the payment and delivery. For orders placed directly with a "
+             "brand (its own app, website or phone line), contact that brand's listed support channel, "
+             "or reach Curefoods at support@curefoods.in.",
+    },
+    {
+        "q": "Do Curefoods brands offer vegetarian and eggless options?",
+        "a": "Yes, across the portfolio — CakeZone runs a 100% eggless cake menu, Krispy Kreme India "
+             "uses an eggless doughnut recipe, and EatFit, Sharief Bhai and Arambam all carry dedicated "
+             "vegetarian dishes alongside non-vegetarian ones.",
+    },
+    {
+        "q": "Can I track my order from a Curefoods brand in real time?",
+        "a": "Orders placed via Swiggy or Zomato are tracked inside those apps. Brands with their own "
+             "ordering channels, such as Sharief Bhai and Krispy Kreme India, offer tracking through "
+             "their own app or website as well.",
     },
 ]
 
