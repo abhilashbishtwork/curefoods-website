@@ -14,6 +14,10 @@ SITE = {
         "category-defining F&B brands — from healthy meals to biryani, pizza to "
         "desserts — out of 281 cloud kitchens, 99 kiosks and 122 restaurants."
     ),
+    "short_description": (
+        "India's house of food brands. 281 cloud kitchens, 99 kiosks, "
+        "122 restaurants nationwide."
+    ),
     "founder": "Ankit Nagori",
     "founded_year": "2020",
     "hq": "Bengaluru, Karnataka, India",
@@ -196,6 +200,7 @@ BRANDS = [
         "category": "Millet-first South Indian",
         "color": "#3E7A5C",
         "logo": "/assets/images/logos/arambam.webp",
+        "logo_bg": "#4D4D24",
         "photo": "/assets/images/photos/arambam-food.jpg",
         "domain": "https://www.arambam.com",
         "tagline": "5 states in 1 plate — wholesome South Indian, built on millets.",
@@ -412,7 +417,7 @@ SITE_FAQ = [
 
 VALUES = [
     {"title": "Kitchen-first economics", "text": "Every brand is designed around shared kitchen infrastructure, so unit economics work before marketing spend does."},
-    {"title": "Category depth over breadth", "text": "Each brand owns one occasion — health, biryani, dessert, celebration — rather than trying to be everything to everyone."},
+    {"title": "Category depth over breadth", "text": "Each brand owns one occasion — health, biryani, dessert, celebration — built for depth in that category rather than breadth across categories."},
     {"title": "Data-run, fast to the door", "text": "Menu, pricing and kitchen placement are driven by order-level data, and kitchen density is built to shrink delivery time without shrinking food quality."},
 ]
 

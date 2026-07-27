@@ -211,7 +211,7 @@ def footer_html():
     <div class="footer-grid">
       <div>
         <a href="{u('/')}" class="logo"><img src="{u('/assets/images/logos/curefoods.png')}" alt="Curefoods" class="logo-img"></a>
-        <p style="max-width:34ch;margin-top:14px;color:#a99d8b">{esc(SITE["description"])}</p>
+        <p style="max-width:34ch;margin-top:14px;color:#a99d8b">{esc(SITE["short_description"])}</p>
         <div class="footer-social mt" style="margin-top:20px">
           <a href="{SITE['social']['youtube']}" aria-label="YouTube" target="_blank" rel="noopener">YouTube</a>
           <a href="{SITE['social']['linkedin']}" aria-label="LinkedIn" target="_blank" rel="noopener">LinkedIn</a>
@@ -232,8 +232,6 @@ def footer_html():
           <li><a href="{u('/careers.html')}">Careers</a></li>
           <li><a href="{u('/faq.html')}">FAQ</a></li>
           <li><a href="{u('/contact.html')}">Contact</a></li>
-          <li><a href="{u('/legal/privacy.html')}">Privacy Policy</a></li>
-          <li><a href="{u('/legal/terms.html')}">Terms of Use</a></li>
         </ul>
       </div>
     </div>
@@ -405,7 +403,7 @@ def build_home():
 <section class="hero">
   <div class="wrap hero-grid">
     <div>
-      <span class="eyebrow">House of Brands · Est. {SITE['founded_year']}</span>
+      <span class="eyebrow">India's House of Food Brands</span>
       <h1>One kitchen network.<br>{len(BRANDS)} brands people crave.</h1>
       <p class="lede">{hero_answer}</p>
       <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:28px">
@@ -429,7 +427,7 @@ def build_home():
     <div class="section-head">
       <span class="eyebrow">Our Brands</span>
       <h2>Multiple brands, one occasion each.</h2>
-      <p class="lede">Every Curefoods brand is built to own a single craving — health, biryani, pizza, dessert, celebration — instead of trying to be everything to everyone.</p>
+      <p class="lede">Each Curefoods brand is built for one occasion — health, biryani, pizza, dessert, celebration — with the category depth and focus a single-category brand can't match.</p>
     </div>
     <div class="brand-grid">{brand_cards}</div>
   </div>
@@ -674,7 +672,7 @@ def build_about():
 
 <section class="section-tight section-dark">
   <div class="wrap">
-    <div class="section-head"><span class="eyebrow">Our Footprint</span><h2>We serve happiness to your plate across India.</h2></div>
+    <div class="section-head"><span class="eyebrow">Our Footprint</span><h2>Our kitchen and store network across India.</h2></div>
     {footprint_bars_html()}
     <p style="margin-top:24px;color:#a99d8b;font-size:.85rem">Particulars as of {esc(FACILITY_STATS['as_of'])}.</p>
   </div>
@@ -708,12 +706,8 @@ def build_about():
 </section>
 
 <section class="section-tight">
-  <div class="wrap grid-2" style="align-items:center">
-    <div class="card">
-      <h3>Leadership</h3>
-      <p><strong>{SITE['founder']}</strong> — Founder &amp; CEO. Previously co-founder of Cure.fit (Cult.fit) and Chief Business Officer at Flipkart.</p>
-    </div>
-    <div class="card">
+  <div class="wrap">
+    <div class="card" style="max-width:520px">
       <h3>Headquarters</h3>
       <p>{SITE['hq']}</p>
       <p>Press enquiries: <a href="mailto:{SITE['press_email']}">{SITE['press_email']}</a></p>
@@ -866,7 +860,7 @@ def build_newsroom():
 </section>
 <section class="section-tight section-dark">
   <div class="wrap">
-    <div class="section-head"><span class="eyebrow">Our Footprint</span><h2>We serve happiness to your plate across India.</h2></div>
+    <div class="section-head"><span class="eyebrow">Our Footprint</span><h2>Our kitchen and store network across India.</h2></div>
     {footprint_bars_html()}
     <p style="margin-top:24px;color:#a99d8b;font-size:.85rem">Particulars as of {esc(FACILITY_STATS['as_of'])}.</p>
   </div>
@@ -962,8 +956,7 @@ def build_sitemap():
     import datetime
     lastmod = datetime.date.today().isoformat()
     urls = ["/", "/brands.html", "/about.html", "/faq.html", "/careers.html",
-            "/newsroom.html", "/contact.html",
-            "/legal/privacy.html", "/legal/terms.html"]
+            "/newsroom.html", "/contact.html"]
     urls += [f"/brands/{b['slug']}.html" for b in BRANDS]
     items = "\n".join(f"  <url><loc>{DOMAIN}{u}</loc><lastmod>{lastmod}</lastmod></url>" for u in urls)
     xml = f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{items}\n</urlset>\n'
