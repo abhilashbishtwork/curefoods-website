@@ -258,6 +258,16 @@ p{margin:0 0 1em;}
 .stats-band b{display:block;font-family:var(--font-mono);font-weight:600;font-size:2.4rem;color:var(--paper);}
 .stats-band span{font-size:.85rem;color:var(--paper);opacity:.65;}
 
+/* Footprint bars — proportional magnitude comparison, not equal-size numbers */
+.footprint-bars{display:flex;flex-direction:column;gap:22px;max-width:640px;}
+.fp-row{display:flex;align-items:center;gap:24px;}
+.fp-label{flex:0 0 190px;display:flex;align-items:baseline;gap:10px;}
+.fp-label b{font-family:var(--font-mono);font-weight:600;font-size:1.7rem;color:var(--paper);}
+.fp-label span{font-size:.82rem;color:var(--paper);opacity:.65;}
+.fp-track{flex:1;height:10px;border-radius:2px;background:var(--line);overflow:hidden;}
+.fp-fill{height:100%;border-radius:2px;}
+@media (max-width:640px){.fp-row{flex-direction:column;align-items:flex-start;gap:8px;}.fp-label{flex:none;}.fp-track{width:100%;}}
+
 /* FAQ (AEO) */
 .faq-list{border-top:1px solid var(--line);}
 .faq-item{border-bottom:1px solid var(--line);padding:22px 0;}

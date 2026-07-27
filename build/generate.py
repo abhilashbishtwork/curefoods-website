@@ -66,6 +66,22 @@ ICON_SVG = {
 }
 
 
+def footprint_bars_html():
+    """Facility-count comparison as proportional bars, not three same-size
+    numbers — 281 cloud kitchens really is ~2.8x the kiosk count, and the
+    bars say that honestly instead of implying equal weight."""
+    items = FACILITY_STATS["items"]
+    values = [int(re.sub(r"[^\d]", "", item["value"])) for item in items]
+    max_val = max(values)
+    colors = ["var(--brand)", "var(--gold)", "var(--accent-green)"]
+    rows = "".join(f"""
+      <div class="fp-row">
+        <div class="fp-label"><b>{esc(item['value'])}</b><span>{esc(item['label'])}</span></div>
+        <div class="fp-track"><div class="fp-fill" style="width:{100 * v / max_val:.0f}%;background:{colors[i % 3]}"></div></div>
+      </div>""" for i, (item, v) in enumerate(zip(items, values)))
+    return f'<div class="footprint-bars">{rows}</div>'
+
+
 def kitchen_ticket_html():
     """The signature element: one real order ticket carrying dishes from
     three different brands out of one kitchen — the site's whole thesis
@@ -623,9 +639,6 @@ def build_brand_page(b):
 
 
 def build_about():
-    facility_stats_html = "\n".join(
-        f'<div><b>{esc(item["value"])}</b><span>{esc(item["label"])}</span></div>' for item in FACILITY_STATS["items"]
-    )
     values_html = "".join(f"""
       <div class="feature"><h3>{esc(v['title'])}</h3><p>{esc(v['text'])}</p></div>""" for v in VALUES)
     purpose_paras = "".join(
@@ -638,11 +651,16 @@ def build_about():
       </div>""" for v in CORE_VALUES)
     body = f"""
 <section class="brand-hero">
-  <div class="wrap">
+  <div class="wrap brand-hero-grid">
+    <div>
     <div class="crumbs"><a href="{u('/')}">Home</a> / About Us</div>
     <span class="eyebrow">About Curefoods</span>
     <h1>We build food brands the way operators build companies.</h1>
-    <p class="lede" style="max-width:none">Founded in {SITE['founded_year']}, Curefoods is India's house of food brands — {len(BRANDS)}+ flagship brands, 281 cloud kitchens, 99 kiosks, 122 restaurants.</p>
+    <p class="lede">Founded in {SITE['founded_year']}, Curefoods is India's house of food brands — {len(BRANDS)}+ flagship brands, 281 cloud kitchens, 99 kiosks, 122 restaurants.</p>
+    </div>
+    <div class="brand-hero-photo">
+      <img src="{u('/assets/images/photos/krispy-kreme-food.jpg')}" alt="" loading="lazy">
+    </div>
   </div>
 </section>
 
@@ -657,7 +675,7 @@ def build_about():
 <section class="section-tight section-dark">
   <div class="wrap">
     <div class="section-head"><span class="eyebrow">Our Footprint</span><h2>We serve happiness to your plate across India.</h2></div>
-    <div class="stats-band">{facility_stats_html}</div>
+    {footprint_bars_html()}
     <p style="margin-top:24px;color:#a99d8b;font-size:.85rem">Particulars as of {esc(FACILITY_STATS['as_of'])}.</p>
   </div>
 </section>
@@ -849,7 +867,7 @@ def build_newsroom():
 <section class="section-tight section-dark">
   <div class="wrap">
     <div class="section-head"><span class="eyebrow">Our Footprint</span><h2>We serve happiness to your plate across India.</h2></div>
-    <div class="stats-band">{"".join(f'<div><b>{esc(item["value"])}</b><span>{esc(item["label"])}</span></div>' for item in FACILITY_STATS["items"])}</div>
+    {footprint_bars_html()}
     <p style="margin-top:24px;color:#a99d8b;font-size:.85rem">Particulars as of {esc(FACILITY_STATS['as_of'])}.</p>
   </div>
 </section>
