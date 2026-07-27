@@ -82,32 +82,25 @@ def footprint_bars_html():
     return f'<div class="footprint-bars">{rows}</div>'
 
 
-def kitchen_ticket_html():
-    """The signature element: one real order ticket carrying dishes from
-    three different brands out of one kitchen — the site's whole thesis
-    made into a literal, inspectable object instead of another stat row."""
+def hero_collage_html():
+    """Real product photography from across the portfolio, not a single
+    stand-in photo — the fastest way to show eight distinct, real brands
+    at a glance instead of describing them."""
     by_slug = {b["slug"]: b for b in BRANDS}
-    order = [by_slug["eatfit"], by_slug["arambam"], by_slug["cakezone"]]
-    lines = "".join(f"""
-      <div class="kt-line">
-        <img class="kt-thumb" src="{u(b['photo'])}" alt="" loading="lazy">
-        <span class="kt-item">1&times; {esc(b['menu'][0]['name'])}</span>
-        <span class="kt-brand">{esc(b['name']).upper()}</span>
-      </div>""" for b in order)
-    return f"""
-<div class="kitchen-ticket" role="img" aria-label="A single Curefoods kitchen order ticket carrying one dish each from EatFit, Arambam and CakeZone — one kitchen, one route.">
-  <div class="kt-head">
-    <span>TICKET&nbsp;№0417</span>
-    <span class="kt-stamp">LIVE</span>
-  </div>
-  <div class="kt-tear"><span></span><span></span></div>
-  <div class="kt-body">{lines}
-  </div>
-  <div class="kt-tear"><span></span><span></span></div>
-  <div class="kt-foot">
-    <span>1 KITCHEN</span><span>1 ROUTE</span><span>22 MIN</span>
-  </div>
-</div>"""
+    order = [
+        ("sharief-bhai", "big"),
+        ("olio", ""),
+        ("cakezone", ""),
+        ("krispy-kreme", ""),
+        ("frozen-bottle", ""),
+        ("arambam", ""),
+    ]
+    cells = "".join(f"""
+      <div class="cell {size}">
+        <img src="{u(by_slug[slug]['photo'])}" alt="{esc(by_slug[slug]['name'])}" loading="lazy">
+        <span class="tag">{esc(by_slug[slug]['name'])}</span>
+      </div>""" for slug, size in order)
+    return f'<div class="hero-collage">{cells}</div>'
 
 
 def mark_html(b, extra_class=""):
@@ -384,10 +377,12 @@ def brand_card_html(b):
 # ------------------------------------------------------------------- pages
 
 def build_home():
+    brand_names = [b["name"] for b in BRANDS]
+    brand_names_joined = ", ".join(brand_names[:-1]) + f" and {brand_names[-1]}"
     hero_answer = (
-        f"Curefoods is India's house of food brands — home to EatFit, Sharief Bhai, Olio, "
-        f"Arambam, Krispy Kreme, Nomad Pizza and CakeZone, run out of {SITE['stats'][0]['value']} "
-        f"cloud kitchens, {SITE['stats'][1]['value']} kiosks and {SITE['stats'][2]['value']} restaurants."
+        f"Curefoods is India's house of food brands — home to {brand_names_joined}, "
+        f"run out of {SITE['stats'][0]['value']} cloud kitchens, {SITE['stats'][1]['value']} "
+        f"kiosks and {SITE['stats'][2]['value']} restaurants."
     )
     brand_cards = "\n".join(brand_card_html(b) for b in BRANDS)
     stats_html = "\n".join(
@@ -419,11 +414,7 @@ def build_home():
       <div class="hero-stats">{stats_html}</div>
     </div>
     <div class="hero-art">
-      <div class="hero-art-photo-wrap">
-        <img src="{u('/assets/images/photos/sharief-bhai-store.jpg')}" alt="Sharief Bhai's flagship store, lit up at night" class="hero-art-photo">
-        <div class="hero-art-scrim"></div>
-      </div>
-      {kitchen_ticket_html()}
+      {hero_collage_html()}
     </div>
   </div>
 </section>

@@ -456,6 +456,65 @@ BRANDS = [
             },
         ],
     },
+    {
+        "slug": "frozen-bottle",
+        "name": "Frozen Bottle",
+        "full_name": "Frozen Bottle",
+        "category": "Milkshakes, Desserts & Ice Cream",
+        "color": "#EB1256",
+        "logo": "/assets/images/logos/frozen-bottle.png",
+        "photo": "/assets/images/photos/frozen-bottle-food.jpg",
+        "domain": "https://frozenbottle.com",
+        "instagram": "https://www.instagram.com/frozen_bottle",
+        "tagline": "100% veg, 100% eggless — for every mood.",
+        "description": (
+            "Frozen Bottle is Curefoods' cold-dessert brand, serving thick milkshakes, "
+            "ice-cream sundae jars, boba and Belgian waffles that are 100% vegetarian and "
+            "100% eggless."
+        ),
+        "story": (
+            "Frozen Bottle was started in 2017 by first-time entrepreneur Pranshul Yadav, "
+            "alongside co-founders Arun Suvarna and Arun Kumar, and built a category around "
+            "thick, jar-served milkshakes and desserts. Curefoods acquired a majority stake "
+            "in the brand in March 2022, adding India's cold-dessert occasion to its "
+            "portfolio alongside CakeZone's celebration cakes."
+        ),
+        "menu": [
+            {"veg": True, "name": "Signature Milkshake", "detail": "Thick, jar-served milkshake"},
+            {"veg": True, "name": "Belgian Choco Chunk Sundae Jar", "detail": "Ice cream sundae jar"},
+            {"veg": True, "name": "Gudbud Sundae Jar", "detail": "Layered ice cream sundae"},
+            {"veg": True, "name": "Belgian Waffles", "detail": "Served with ice cream"},
+        ],
+        "cities": ["Bengaluru", "Mumbai", "Hyderabad", "Pune", "Chennai", "Delhi NCR", "Kolkata"],
+        "founded": "2017 (acquired by Curefoods in 2022)",
+        "faq": [
+            {
+                "q": "Is Frozen Bottle vegetarian?",
+                "a": "Yes — Frozen Bottle's entire menu, from milkshakes to ice-cream sundae "
+                     "jars, is 100% vegetarian.",
+            },
+            {
+                "q": "Are Frozen Bottle's desserts eggless?",
+                "a": "Yes — per Frozen Bottle's own FAQ, all its products are 100% eggless.",
+            },
+            {
+                "q": "Who founded Frozen Bottle?",
+                "a": "Frozen Bottle was founded in 2017 by Pranshul Yadav along with co-founders "
+                     "Arun Suvarna and Arun Kumar, before Curefoods acquired a majority stake "
+                     "in the brand in March 2022.",
+            },
+            {
+                "q": "What does Frozen Bottle sell besides milkshakes?",
+                "a": "Beyond its signature thick milkshakes, Frozen Bottle serves ice-cream "
+                     "sundae jars, boba and bubble teas, cold coffee and Belgian waffles.",
+            },
+            {
+                "q": "Which cities is Frozen Bottle available in?",
+                "a": "Frozen Bottle has outlets across Bengaluru, Mumbai, Hyderabad, Pune, "
+                     "Chennai, Delhi NCR and Kolkata, with Bengaluru as its largest market.",
+            },
+        ],
+    },
 ]
 
 # Site-wide FAQ (in addition to per-brand FAQs), feeds the /faq.html hub — the
