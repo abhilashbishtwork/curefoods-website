@@ -177,7 +177,7 @@ BRANDS = [
             },
             {
                 "q": "Is Sharief Bhai's meat halal?",
-                "a": "Yes — per Sharief Bhai's own FAQ, the brand uses 100% halal meat across all its outlets.",
+                "a": "Yes — Sharief Bhai uses 100% halal meat across all its outlets.",
             },
             {
                 "q": "Does Sharief Bhai have vegetarian options?",
@@ -437,13 +437,13 @@ BRANDS = [
             },
             {
                 "q": "Does CakeZone offer eggless cakes?",
-                "a": "Yes — per CakeZone's own FAQ, it carries a full menu of 100% eggless cakes "
-                     "across its flavours, not a limited add-on selection.",
+                "a": "Yes — CakeZone carries a full menu of 100% eggless cakes across its "
+                     "flavours, not a limited add-on selection.",
             },
             {
                 "q": "How fast can CakeZone deliver a cake?",
-                "a": "Beyond same-day and midnight slots, CakeZone offers express delivery within "
-                     "60 minutes in select areas, per its own FAQ.",
+                "a": "Beyond same-day and midnight slots, CakeZone offers express delivery "
+                     "within 60 minutes in select areas.",
             },
             {
                 "q": "Can I personalize a CakeZone cake with a name or message?",
@@ -473,11 +473,10 @@ BRANDS = [
             "100% eggless."
         ),
         "story": (
-            "Frozen Bottle was started in 2017 by first-time entrepreneur Pranshul Yadav, "
-            "alongside co-founders Arun Suvarna and Arun Kumar, and built a category around "
-            "thick, jar-served milkshakes and desserts. Curefoods acquired a majority stake "
-            "in the brand in March 2022, adding India's cold-dessert occasion to its "
-            "portfolio alongside CakeZone's celebration cakes."
+            "Frozen Bottle launched in 2017 as a 100% vegetarian, 100% eggless dessert brand — "
+            "thick milkshakes, ice-cream sundae jars, boba and Belgian waffles. Its own promise, "
+            "#servingmemories, is the pitch: a dessert destination people remember, not just "
+            "another delivery order."
         ),
         "menu": [
             {"veg": True, "name": "Signature Milkshake", "detail": "Thick, jar-served milkshake"},
@@ -486,7 +485,7 @@ BRANDS = [
             {"veg": True, "name": "Belgian Waffles", "detail": "Served with ice cream"},
         ],
         "cities": ["Bengaluru", "Mumbai", "Hyderabad", "Pune", "Chennai", "Delhi NCR", "Kolkata"],
-        "founded": "2017 (acquired by Curefoods in 2022)",
+        "founded": "2017",
         "faq": [
             {
                 "q": "Is Frozen Bottle vegetarian?",
@@ -495,13 +494,7 @@ BRANDS = [
             },
             {
                 "q": "Are Frozen Bottle's desserts eggless?",
-                "a": "Yes — per Frozen Bottle's own FAQ, all its products are 100% eggless.",
-            },
-            {
-                "q": "Who founded Frozen Bottle?",
-                "a": "Frozen Bottle was founded in 2017 by Pranshul Yadav along with co-founders "
-                     "Arun Suvarna and Arun Kumar, before Curefoods acquired a majority stake "
-                     "in the brand in March 2022.",
+                "a": "Yes — all Frozen Bottle products are 100% eggless.",
             },
             {
                 "q": "What does Frozen Bottle sell besides milkshakes?",

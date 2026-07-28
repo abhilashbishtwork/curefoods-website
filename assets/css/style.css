@@ -21,6 +21,9 @@
   --nonveg-color:#C7391A;
   --gold:#D99B2B;
   --white:#FFFFF8;
+  --brand-navy:#052364;
+  --on-navy:#F4F2EA;
+  --on-navy-soft:#AEB9D9;
   --max:1240px;
   --radius:4px;
   --radius-sm:3px;
@@ -154,7 +157,21 @@ p{margin:0 0 1em;}
   .nav-actions .btn-ghost{display:none;}
 }
 
-/* Hero */
+/* Hero — Curefoods navy, the brand's own logo color, on every page's top band */
+.hero,.brand-hero{background:var(--brand-navy);color:var(--on-navy);}
+.hero .eyebrow,.brand-hero .eyebrow{color:var(--on-navy-soft);}
+.hero .eyebrow::before,.brand-hero .eyebrow::before{background:var(--gold);}
+.hero .lede,.brand-hero .lede{color:var(--on-navy-soft);}
+.hero .crumbs,.brand-hero .crumbs{color:var(--on-navy-soft);}
+.hero .crumbs a,.brand-hero .crumbs a{color:var(--on-navy-soft);}
+.hero .crumbs a:hover,.brand-hero .crumbs a:hover{color:#fff;}
+.hero .btn-ghost,.brand-hero .btn-ghost{border-color:rgba(255,255,255,.5);color:#fff;}
+.hero .btn-ghost:hover,.brand-hero .btn-ghost:hover{background:#fff;color:var(--brand-navy);}
+.hero .stat b,.brand-hero .stat b{color:#fff;}
+.hero .stat span,.brand-hero .stat span{color:var(--on-navy-soft);}
+.hero .faq-answer-box,.brand-hero .faq-answer-box{background:rgba(255,255,255,.08);border-left-color:var(--gold);color:var(--on-navy);}
+.hero .pill,.brand-hero .pill{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.22);color:#fff;}
+
 .hero{padding:72px 0 56px;position:relative;overflow:hidden;}
 .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center;}
 @media (max-width:960px){.hero-grid{grid-template-columns:1fr;}}
@@ -245,10 +262,6 @@ p{margin:0 0 1em;}
 .feature .ic svg{width:100%;height:100%;display:block;}
 
 /* Stats band */
-.stats-band{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;text-align:center;}
-@media (max-width:760px){.stats-band{grid-template-columns:1fr;}}
-.stats-band b{display:block;font-family:var(--font-mono);font-weight:600;font-size:2.4rem;color:var(--paper);}
-.stats-band span{font-size:.85rem;color:var(--paper);opacity:.65;}
 
 /* Footprint bars — proportional magnitude comparison, not equal-size numbers */
 .footprint-bars{display:flex;flex-direction:column;gap:22px;max-width:640px;}
@@ -298,7 +311,7 @@ p{margin:0 0 1em;}
 .crumbs a:hover{color:var(--brand-text);}
 
 /* Brand hero variants */
-.brand-hero{padding:64px 0 40px;border-bottom:1px solid var(--line);}
+.brand-hero{padding:64px 0 40px;}
 .brand-hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;}
 @media (max-width:880px){.brand-hero-grid{grid-template-columns:1fr;}.brand-hero-photo{order:-1;}}
 .brand-hero-photo{aspect-ratio:4/5;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-2);}

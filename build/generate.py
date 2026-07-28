@@ -136,7 +136,7 @@ def head(title, description, canonical, schema_objs=None, og_image=None):
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
 <meta name="theme-color" content="#E6461C">
 <link rel="manifest" href="{u('/manifest.json')}">
-<link rel="icon" href="{u('/assets/images/favicon.svg')}" type="image/svg+xml">
+<link rel="icon" href="{u('/assets/images/favicon.png')}" type="image/png">
 <link rel="apple-touch-icon" href="{u('/assets/images/apple-touch-icon.png')}">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Curefoods">
@@ -377,19 +377,14 @@ def brand_card_html(b):
 # ------------------------------------------------------------------- pages
 
 def build_home():
-    brand_names = [b["name"] for b in BRANDS]
-    brand_names_joined = ", ".join(brand_names[:-1]) + f" and {brand_names[-1]}"
     hero_answer = (
-        f"Curefoods is India's house of food brands — home to {brand_names_joined}, "
-        f"run out of {SITE['stats'][0]['value']} cloud kitchens, {SITE['stats'][1]['value']} "
-        f"kiosks and {SITE['stats'][2]['value']} restaurants."
+        "Built so a biryani order from Sharief Bhai and a milkshake from Frozen Bottle "
+        "can leave the same kitchen, on the same route — without either one tasting "
+        "like an afterthought."
     )
     brand_cards = "\n".join(brand_card_html(b) for b in BRANDS)
     stats_html = "\n".join(
         f'<div class="stat"><b>{s["value"]}</b><span>{esc(s["label"])}</span></div>' for s in SITE["stats"]
-    )
-    stats_band = "\n".join(
-        f'<div><b>{s["value"]}</b><span>{esc(s["label"])}</span></div>' for s in SITE["stats"]
     )
     feature_rows = "".join(f"""
       <div class="feature">
@@ -441,8 +436,10 @@ def build_home():
 </section>
 
 <section class="section section-dark">
-  <div class="wrap">
-    <div class="stats-band">{stats_band}</div>
+  <div class="wrap section-head center" style="max-width:760px">
+    <span class="eyebrow">{esc(CORE_PURPOSE['eyebrow'])}</span>
+    <h2>{esc(CORE_PURPOSE['title'])}</h2>
+    <p class="lede">{esc(CORE_PURPOSE['paragraphs'][3])}</p>
   </div>
 </section>
 
@@ -561,7 +558,7 @@ def build_brand_page(b):
     <div class="crumbs"><a href="{u('/')}">Home</a> / <a href="{u('/brands.html')}">Our Brands</a> / {esc(b['name'])}</div>
     <div class="brand-hero-top">
       {mark_html(b, "mark-lg")}
-      <span class="brand-badge" style="background:{b['color']}22;color:{b['color']}">{esc(b['category'])}</span>
+      <span class="brand-badge" style="background:#fff;color:{b['color']}">{esc(b['category'])}</span>
     </div>
     <h1>{esc(b['full_name'])}</h1>
     <p class="lede">{esc(b['tagline'])}</p>
