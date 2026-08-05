@@ -82,25 +82,14 @@ def footprint_bars_html():
     return f'<div class="footprint-bars">{rows}</div>'
 
 
-def hero_collage_html():
-    """Real product photography from across the portfolio, not a single
-    stand-in photo — the fastest way to show eight distinct, real brands
-    at a glance instead of describing them."""
-    by_slug = {b["slug"]: b for b in BRANDS}
-    order = [
-        ("sharief-bhai", "big"),
-        ("olio", ""),
-        ("cakezone", ""),
-        ("krispy-kreme", ""),
-        ("frozen-bottle", ""),
-        ("arambam", ""),
-    ]
-    cells = "".join(f"""
-      <div class="cell {size}">
-        <img src="{u(by_slug[slug]['photo'])}" alt="{esc(by_slug[slug]['name'])}" loading="lazy">
-        <span class="tag">{esc(by_slug[slug]['name'])}</span>
-      </div>""" for slug, size in order)
-    return f'<div class="hero-collage">{cells}</div>'
+def youtube_embed_html(video_id, title):
+    """Real footage, not a stand-in photo or illustration."""
+    return f"""
+<div class="hero-video">
+  <iframe src="https://www.youtube-nocookie.com/embed/{video_id}" title="{esc(title)}"
+    loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>"""
 
 
 def mark_html(b, extra_class=""):
@@ -409,7 +398,7 @@ def build_home():
       <div class="hero-stats">{stats_html}</div>
     </div>
     <div class="hero-art">
-      {hero_collage_html()}
+      {youtube_embed_html("pjmHLOQf6ig", "Inside Curefoods' Bengaluru office — office tour")}
     </div>
   </div>
 </section>
