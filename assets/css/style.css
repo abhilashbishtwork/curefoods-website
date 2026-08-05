@@ -155,7 +155,7 @@ p{margin:0 0 1em;}
 }
 
 .hero{padding:72px 0 32px;position:relative;overflow:hidden;}
-.hero-grid{display:grid;grid-template-columns:.85fr 1fr;gap:56px;align-items:start;}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;}
 @media (max-width:960px){.hero-grid{grid-template-columns:1fr;}}
 .hero-stats{display:flex;gap:32px;margin-top:40px;flex-wrap:wrap;}
 .stat b{display:block;font-family:var(--font-mono);font-weight:600;font-size:1.8rem;color:var(--ink);}

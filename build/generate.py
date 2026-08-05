@@ -92,7 +92,7 @@ def video_embed_html(src, title):
     """Real footage, self-hosted — not a stand-in photo or a third-party embed."""
     return f"""
 <div class="hero-video">
-  <video controls autoplay muted loop playsinline preload="auto" aria-label="{esc(title)}">
+  <video autoplay muted loop playsinline preload="auto" disablepictureinpicture aria-label="{esc(title)}">
     <source src="{u(src)}" type="video/mp4">
   </video>
 </div>"""
