@@ -390,7 +390,7 @@ def build_home():
   <div class="wrap hero-grid">
     <div>
       <span class="eyebrow">India's House of Food Brands</span>
-      <h1>Creating iconic food brands.</h1>
+      <h1>Creating iconic<br>food brands</h1>
       <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:28px">
         <a href="{u('/brands.html')}" class="btn btn-primary">Explore our brands</a>
         <a href="{u('/about.html')}" class="btn btn-ghost">Our story</a>
