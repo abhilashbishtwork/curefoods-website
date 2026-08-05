@@ -353,13 +353,15 @@ def brand_card_html(b):
         f'<div class="brand-card-photo"><img src="{u(b["photo"])}" alt="{esc(b["name"])}" loading="lazy"></div>'
         if b.get("photo") else ""
     )
+    cat = b["category"]
+    cat_display = f"{esc(cat.split(' (')[0])}<br>({esc(cat.split(' (', 1)[1])}" if " (" in cat else esc(cat)
     return f"""
 <a class="brand-card" href="{u('/brands/' + b['slug'] + '.html')}">
   {photo}
   <div class="brand-card-body">
     {mark_html(b)}
     <div>
-      <span class="cat">{esc(b['category'])}</span>
+      <span class="cat">{cat_display}</span>
       <h3>{esc(b['name'])}</h3>
     </div>
     <p>{esc(b['tagline'])}</p>
@@ -407,7 +409,7 @@ def build_home():
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">Our Brands</span>
-      <h2>Multiple brands, one occasion each.</h2>
+      <h2>Brand for every occasion.</h2>
       <p class="lede">Each Curefoods brand is built for one occasion — health, biryani, pizza, dessert, celebration — with the category depth and focus a single-category brand can't match.</p>
     </div>
     <div class="brand-grid">{brand_cards}</div>
@@ -506,7 +508,7 @@ def build_brands_index():
     ]
     html = page(
         "Our Brands — Curefoods House of Food Brands",
-        "Explore all Curefoods brands: EatFit, Sharief Bhai, Roz Shawarma, Nomad Pizza, Frozen Bottle, Olio, CakeZone and the Kitchens of EatFit family.",
+        "Explore all Curefoods brands: Eatfit, Sharief Bhai, Roz Shawarma, Nomad Pizza, Frozen Bottle, Olio, CakeZone and the Kitchens of Eatfit family.",
         "/brands.html",
         body,
         active="/brands.html",

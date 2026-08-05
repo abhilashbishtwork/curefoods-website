@@ -50,26 +50,26 @@ NAV = [
 BRANDS = [
     {
         "slug": "eatfit",
-        "name": "EatFit",
-        "full_name": "EatFit — Kitchens of EatFit",
-        "category": "Healthy Meals",
+        "name": "Eatfit",
+        "full_name": "Eatfit — Kitchens of Eatfit",
+        "category": "Healthy Bowls",
         "color": "#1F6D4C",
         "logo": "/assets/images/logos/eatfit.png",
         "photo": "/assets/images/photos/eatfit-food.jpg",
         "instagram": "https://www.instagram.com/the_eatfit",
         "tagline": "Calorie-counted meals for people who refuse to compromise.",
         "description": (
-            "EatFit is Curefoods' flagship healthy-eating brand, delivering "
+            "Eatfit is Curefoods' flagship healthy-eating brand, delivering "
             "calorie-tracked, macro-balanced meals designed with nutritionists. "
-            "It anchors the 'Kitchens of EatFit' umbrella of eight sister brands "
+            "It anchors the 'Kitchens of Eatfit' umbrella of eight sister brands "
             "operating out of the same shared kitchens."
         ),
         "story": (
-            "Founded as the first brand under Curefoods in 2020, EatFit set out to prove "
+            "Founded as the first brand under Curefoods in 2020, Eatfit set out to prove "
             "that healthy food could be convenient, affordable and genuinely tasty at scale. "
             "Every meal is nutrition-labelled with calories, protein and macros, and the menu "
-            "rotates seasonally with dietitian input. In 2023, EatFit relaunched as 'Kitchens "
-            "of EatFit', bringing HRX by EatFit, Great Indian Khichdi, Homeplate, Chaat Street, "
+            "rotates seasonally with dietitian input. In 2023, Eatfit relaunched as 'Kitchens "
+            "of Eatfit', bringing HRX by Eatfit, Great Indian Khichdi, Homeplate, Chaat Street, "
             "Rolls on Wheels, Millet Express and Madras Curd Rice Company onto one shared "
             "kitchen network — letting a single delivery batch carry dishes from multiple "
             "brands to the same customer."
@@ -85,39 +85,39 @@ BRANDS = [
         "ambassador": "Hrithik Roshan (brand ambassador & investor)",
         "faq": [
             {
-                "q": "What makes EatFit different from a regular food delivery brand?",
-                "a": "Every EatFit dish is nutrition-labelled with exact calories, protein, carbs and fat, "
+                "q": "What makes Eatfit different from a regular food delivery brand?",
+                "a": "Every Eatfit dish is nutrition-labelled with exact calories, protein, carbs and fat, "
                      "designed with dietitians so customers can hit fitness goals without home-cooking.",
             },
             {
-                "q": "What is 'Kitchens of EatFit'?",
-                "a": "Kitchens of EatFit is the shared-kitchen umbrella that houses EatFit alongside seven "
-                     "sister brands — HRX by EatFit, Great Indian Khichdi, Homeplate, Chaat Street, Rolls on "
+                "q": "What is 'Kitchens of Eatfit'?",
+                "a": "Kitchens of Eatfit is the shared-kitchen umbrella that houses Eatfit alongside seven "
+                     "sister brands — HRX by Eatfit, Great Indian Khichdi, Homeplate, Chaat Street, Rolls on "
                      "Wheels, Millet Express and Madras Curd Rice Company — so one order can mix dishes from all of them.",
             },
             {
-                "q": "Which cities is EatFit available in?",
-                "a": "EatFit operates in Bengaluru, Hyderabad, Chennai, Mumbai and Delhi NCR, with kitchens "
+                "q": "Which cities is Eatfit available in?",
+                "a": "Eatfit operates in Bengaluru, Hyderabad, Chennai, Mumbai and Delhi NCR, with kitchens "
                      "expanding as Curefoods opens new cloud-kitchen clusters.",
             },
             {
-                "q": "Is EatFit good for weight loss?",
-                "a": "EatFit portions and labels every meal with exact calories, protein, carbs and fat, "
+                "q": "Is Eatfit good for weight loss?",
+                "a": "Eatfit portions and labels every meal with exact calories, protein, carbs and fat, "
                      "which makes it easier to track intake toward a weight or fitness goal. As with any "
                      "meal plan, results depend on overall diet and activity, not any single meal.",
             },
             {
-                "q": "Does EatFit have both vegetarian and non-vegetarian meals?",
-                "a": "Yes — EatFit's menu spans both, from grilled chicken and Peri Peri chicken rice "
+                "q": "Does Eatfit have both vegetarian and non-vegetarian meals?",
+                "a": "Yes — Eatfit's menu spans both, from grilled chicken and Peri Peri chicken rice "
                      "bowls to paneer and quinoa khichdi options, all nutrition-labelled the same way.",
             },
             {
-                "q": "Who is EatFit's brand ambassador?",
-                "a": "Actor Hrithik Roshan is EatFit's brand ambassador and an investor in the brand.",
+                "q": "Who is Eatfit's brand ambassador?",
+                "a": "Actor Hrithik Roshan is Eatfit's brand ambassador and an investor in the brand.",
             },
             {
-                "q": "Can I order EatFit as a one-time meal or only as a subscription?",
-                "a": "EatFit meals can be ordered à la carte through Swiggy, Zomato or EatFit's own app "
+                "q": "Can I order Eatfit as a one-time meal or only as a subscription?",
+                "a": "Eatfit meals can be ordered à la carte through Swiggy, Zomato or Eatfit's own app "
                      "and website — there's no subscription requirement, though many customers use it "
                      "for regular, everyday meal planning.",
             },
@@ -358,7 +358,7 @@ BRANDS = [
         "slug": "nomad-pizza",
         "name": "Nomad Pizza",
         "full_name": "Nomad Pizza",
-        "category": "Pizza",
+        "category": "Gourmet Pizza",
         "color": "#A62639",
         "logo": "/assets/images/logos/nomad-pizza.png",
         "photo": "/assets/images/photos/nomad-pizza-food.jpg",
@@ -460,7 +460,7 @@ BRANDS = [
         "slug": "frozen-bottle",
         "name": "Frozen Bottle",
         "full_name": "Frozen Bottle",
-        "category": "Milkshakes, Desserts & Ice Cream",
+        "category": "Milkshake, Dessert & Ice-Cream",
         "color": "#EB1256",
         "logo": "/assets/images/logos/frozen-bottle.png",
         "photo": "/assets/images/photos/frozen-bottle-food.jpg",
@@ -522,7 +522,7 @@ SITE_FAQ = [
     },
     {
         "q": "How many brands does Curefoods own?",
-        "a": "Curefoods' published brand portfolio includes Kitchens of EatFit, Sharief Bhai, "
+        "a": "Curefoods' published brand portfolio includes Kitchens of Eatfit, Sharief Bhai, "
              "Olio Pizza, Arambam, Nomad Pizza, CakeZone and Frozen Bottle, plus master-franchise "
              "partner Krispy Kreme.",
     },
@@ -547,14 +547,14 @@ SITE_FAQ = [
     {
         "q": "How can I order from Curefoods brands?",
         "a": "Every Curefoods brand is listed on major food delivery platforms (Swiggy, Zomato) "
-             "under its own name — search the brand name directly, e.g. 'EatFit' or 'Sharief "
+             "under its own name — search the brand name directly, e.g. 'Eatfit' or 'Sharief "
              "Bhai' — and select brands also operate dedicated apps and dine-in stores.",
     },
     {
         "q": "Is Curefoods the same company as Rebel Foods?",
         "a": "No. Curefoods and Rebel Foods are separate, competing Indian cloud-kitchen "
              "companies that both use a house-of-brands model. Rebel Foods owns brands like "
-             "Faasos, Behrouz Biryani and Oven Story; Curefoods owns EatFit, Sharief Bhai, "
+             "Faasos, Behrouz Biryani and Oven Story; Curefoods owns Eatfit, Sharief Bhai, "
              "CakeZone and the brands listed on this site.",
     },
     {
@@ -588,7 +588,7 @@ SITE_FAQ = [
     {
         "q": "Do Curefoods brands offer vegetarian and eggless options?",
         "a": "Yes, across the portfolio — CakeZone runs a 100% eggless cake menu, Krispy Kreme India "
-             "uses an eggless doughnut recipe, and EatFit, Sharief Bhai and Arambam all carry dedicated "
+             "uses an eggless doughnut recipe, and Eatfit, Sharief Bhai and Arambam all carry dedicated "
              "vegetarian dishes alongside non-vegetarian ones.",
     },
     {
