@@ -65,6 +65,12 @@ ICON_SVG = {
     "bolt": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z"/></svg>',
 }
 
+SOCIAL_ICON_SVG = {
+    "youtube": '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a2.994 2.994 0 0 0-2.107-2.12C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.391.521a2.994 2.994 0 0 0-2.107 2.12A31.31 31.31 0 0 0 0 12a31.31 31.31 0 0 0 .502 5.814 2.994 2.994 0 0 0 2.107 2.12c1.886.521 9.391.521 9.391.521s7.505 0 9.391-.521a2.994 2.994 0 0 0 2.107-2.12A31.31 31.31 0 0 0 24 12a31.31 31.31 0 0 0-.502-5.814zM9.75 15.568V8.432L15.818 12z"/></svg>',
+    "linkedin": '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>',
+    "twitter": '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.643 4.937c-.835.37-1.732.62-2.675.733.962-.576 1.7-1.49 2.048-2.578-.9.534-1.897.922-2.958 1.13-.85-.904-2.06-1.47-3.4-1.47-2.572 0-4.658 2.086-4.658 4.66 0 .364.042.718.12 1.06-3.873-.195-7.304-2.05-9.602-4.868-.4.69-.63 1.49-.63 2.342 0 1.616.823 3.043 2.072 3.878-.764-.025-1.482-.234-2.11-.583v.06c0 2.257 1.605 4.14 3.737 4.568-.392.106-.803.162-1.227.162-.3 0-.593-.028-.877-.082.593 1.85 2.313 3.198 4.352 3.234-1.595 1.25-3.604 1.995-5.786 1.995-.376 0-.747-.022-1.112-.065 2.062 1.323 4.51 2.093 7.14 2.093 8.57 0 13.255-7.098 13.255-13.254 0-.2-.005-.402-.014-.602.91-.658 1.7-1.477 2.323-2.41z"/></svg>',
+}
+
 
 def footprint_bars_html():
     """Facility-count comparison as proportional bars, not three same-size
@@ -82,13 +88,13 @@ def footprint_bars_html():
     return f'<div class="footprint-bars">{rows}</div>'
 
 
-def youtube_embed_html(video_id, title):
-    """Real footage, not a stand-in photo or illustration."""
+def video_embed_html(src, title):
+    """Real footage, self-hosted — not a stand-in photo or a third-party embed."""
     return f"""
 <div class="hero-video">
-  <iframe src="https://www.youtube-nocookie.com/embed/{video_id}" title="{esc(title)}"
-    loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  <video controls autoplay muted loop playsinline preload="auto" aria-label="{esc(title)}">
+    <source src="{u(src)}" type="video/mp4">
+  </video>
 </div>"""
 
 
@@ -195,9 +201,9 @@ def footer_html():
         <a href="{u('/')}" class="logo"><img src="{u('/assets/images/logos/curefoods.png')}" alt="Curefoods" class="logo-img"></a>
         <p style="max-width:34ch;margin-top:14px;color:#a99d8b">{esc(SITE["short_description"])}</p>
         <div class="footer-social mt" style="margin-top:20px">
-          <a href="{SITE['social']['youtube']}" aria-label="YouTube" target="_blank" rel="noopener">YouTube</a>
-          <a href="{SITE['social']['linkedin']}" aria-label="LinkedIn" target="_blank" rel="noopener">LinkedIn</a>
-          <a href="{SITE['social']['twitter']}" aria-label="Twitter" target="_blank" rel="noopener">Twitter</a>
+          <a href="{SITE['social']['youtube']}" aria-label="YouTube" target="_blank" rel="noopener">{SOCIAL_ICON_SVG['youtube']}</a>
+          <a href="{SITE['social']['linkedin']}" aria-label="LinkedIn" target="_blank" rel="noopener">{SOCIAL_ICON_SVG['linkedin']}</a>
+          <a href="{SITE['social']['twitter']}" aria-label="Twitter" target="_blank" rel="noopener">{SOCIAL_ICON_SVG['twitter']}</a>
         </div>
       </div>
       <div>
@@ -366,11 +372,6 @@ def brand_card_html(b):
 # ------------------------------------------------------------------- pages
 
 def build_home():
-    hero_answer = (
-        "Built so a biryani order from Sharief Bhai and a milkshake from Frozen Bottle "
-        "can leave the same kitchen, on the same route — without either one tasting "
-        "like an afterthought."
-    )
     brand_cards = "\n".join(brand_card_html(b) for b in BRANDS)
     stats_html = "\n".join(
         f'<div class="stat"><b>{s["value"]}</b><span>{esc(s["label"])}</span></div>' for s in SITE["stats"]
@@ -390,7 +391,6 @@ def build_home():
     <div>
       <span class="eyebrow">India's House of Food Brands</span>
       <h1>One kitchen network.<br>{len(BRANDS)} brands people crave.</h1>
-      <p class="lede">{hero_answer}</p>
       <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:28px">
         <a href="{u('/brands.html')}" class="btn btn-primary">Explore our brands</a>
         <a href="{u('/about.html')}" class="btn btn-ghost">Our story</a>
@@ -398,7 +398,7 @@ def build_home():
       <div class="hero-stats">{stats_html}</div>
     </div>
     <div class="hero-art">
-      {youtube_embed_html("pjmHLOQf6ig", "Inside Curefoods' Bengaluru office — office tour")}
+      {video_embed_html("/assets/video/curefoods-office-tour.mp4", "Inside Curefoods' Bengaluru office — office tour")}
     </div>
   </div>
 </section>
@@ -640,7 +640,7 @@ def build_about():
     <p class="lede">Founded in {SITE['founded_year']}, Curefoods is India's house of food brands — {len(BRANDS)}+ flagship brands, 281 cloud kitchens, 99 kiosks, 122 restaurants.</p>
     </div>
     <div class="brand-hero-photo">
-      <img src="{u('/assets/images/photos/krispy-kreme-food.jpg')}" alt="" loading="lazy">
+      <img src="{u('/assets/images/photos/olio-food.jpg')}" alt="" loading="lazy">
     </div>
   </div>
 </section>
